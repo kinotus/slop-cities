@@ -17,6 +17,26 @@ const el = (tag, attrs = {}, parent) => {
 
 export function pinRadius(place) { return 5 + Math.min(4, (place.entries.length - 1) * 1.6 + (place.original ? 3 : 0)); }
 
+// Muted, print-like colours for the flat map (the globe keeps the full
+// palette). Land keeps its hue but loses most of its saturation and is lifted
+// toward a warm paper tone; the sea is a few flat bands of pale blue by depth,
+// like an atlas, rather than a shaded surface. Rounding to coarse steps merges
+// neighbouring facets of similar colour, so the land reads as broad patches.
+const PAPER = [246, 241, 228];
+const SEA = [[214, 230, 233], [200, 221, 228], [186, 210, 222], [172, 199, 215]];
+const SEA_ICE = [236, 241, 243];
+function printInk([r, g, b], land, depth, lat) {
+  if (!land) {
+    if (lat > 78 || lat < -70) return SEA_ICE;
+    return SEA[depth < 200 ? 0 : depth < 2000 ? 1 : depth < 4500 ? 2 : 3];
+  }
+  const grey = 0.3 * r + 0.59 * g + 0.11 * b;
+  return [r, g, b].map((v, i) => {
+    const c = (grey + (v - grey) * 0.62) * 0.6 + PAPER[i] * 0.4;
+    return Math.max(0, Math.min(255, Math.round(c / 8) * 8));
+  });
+}
+
 function buildTerrain(world) {
   const { points, grid } = world;
   const t = mapTriangles(points);
@@ -31,7 +51,7 @@ function buildTerrain(world) {
     [a, b, c].forEach((v, k) => { lons[k] = ll[2 * v]; lats[k] = ll[2 * v + 1]; hs[k] = hOf(v); });
     // A facet whose corners straddle the antimeridian on the map is a sliver
     // along the outline; colour it from its corners' own side.
-    const { color, land } = triangleColor(grid, lons, lats, hs);
+    const { color, land, lat: cLat } = triangleColor(grid, lons, lats, hs);
     // Facet normal in (east, north, up): screen y points south.
     const z = (h) => (land ? Math.max(0, h) : h * 0.25) * EX;
     const ax = coords[2 * a], ay = -coords[2 * a + 1], az = z(hs[0]);
@@ -42,8 +62,9 @@ function buildTerrain(world) {
     if (nz < 0) { nx = -nx; ny = -ny; nz = -nz; }
     const nl = Math.hypot(nx, ny, nz) || 1;
     const ndl = (nx * LIGHT[0] + ny * LIGHT[1] + nz * LIGHT[2]) / nl;
-    const jitter = 1 + (((a * 7919 + b * 104729 + c * 1299709) % 1000) / 1000 - 0.5) * 0.1;
-    const rgb = shade(color, ndl).map((v) => Math.max(0, Math.min(255, Math.round((v * jitter) / 3) * 3)));
+    // Print look: soft relief shading, no per-facet jitter, muted inks.
+    const depth = -(Math.min(0, hs[0]) + Math.min(0, hs[1]) + Math.min(0, hs[2])) / 3;
+    const rgb = printInk(land ? shade(color, ndl, 0.93) : color, land, depth, cLat);
     const key = (rgb[0] << 16) | (rgb[1] << 8) | rgb[2];
     let d = groups.get(key);
     if (!d) groups.set(key, (d = []));
@@ -138,9 +159,9 @@ export function createMap2D(container, world, bus) {
   function clampView() {
     view.z = Math.min(40, Math.max(0.8, view.z));
     const hw = (MAP_W * S) / 2, hh = (MAP_H * S) / 2;
-    // Zoomed in, allow the map's edge to come a quarter of the way in, so a
+    // Zoomed in on a phone, allow the map's edge to come a quarter of the way in, so a
     // place near the edge (or under a card) can still be centred.
-    const slack = view.z > 1.2 ? 0.25 / k() : 0;
+    const slack = view.z > 1.2 && matchMedia('(max-width: 820px)').matches ? 0.25 / k() : 0;
     const mx = Math.max(0, hw - W / 2 / k()) + W * slack, my = Math.max(0, hh - H / 2 / k()) + H * slack;
     view.x = Math.min(mx, Math.max(-mx, view.x));
     view.y = Math.min(my, Math.max(-my, view.y));

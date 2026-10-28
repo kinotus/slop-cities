@@ -113,13 +113,13 @@ body:not(.mode-compare) .only-compare { display: none; }
 .map2d svg { position: absolute; left: 0; top: 0; display: block; }
 .map2d .terrain { transform-origin: 0 0; will-change: transform; pointer-events: none; }
 .map2d .facets path { stroke-width: 0.5px; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
-.map2d .outline { fill: none; stroke: rgba(170, 200, 255, 0.35); stroke-width: 1px; vector-effect: non-scaling-stroke; }
-.map2d .outline-glow { fill: #3f7fd6; opacity: 0.35; }
-.map2d .graticule { fill: none; stroke: rgba(255, 255, 255, 0.09); stroke-width: 0.7px; vector-effect: non-scaling-stroke; }
+.map2d .outline { fill: none; stroke: rgba(120, 140, 150, 0.6); stroke-width: 1px; vector-effect: non-scaling-stroke; }
+.map2d .outline-glow { fill: #000; opacity: 0.35; }
+.map2d .graticule { fill: none; stroke: rgba(80, 70, 50, 0.16); stroke-width: 0.7px; vector-effect: non-scaling-stroke; }
 .map2d .overlay { overflow: visible; }
-.arc { fill: none; stroke: #ffd27a; stroke-linecap: round; opacity: 0.75; transition: opacity 0.25s; }
-.arc.remix { stroke: #ff8fd0; }
-.arc.dim { opacity: 0.1; }
+.arc { fill: none; stroke: #c4682c; stroke-linecap: round; opacity: 0.75; transition: opacity 0.25s; }
+.arc.remix { stroke: #b0457e; }
+.arc.dim { opacity: 0.12; }
 .arc.hot { opacity: 1; }
 .pin { cursor: pointer; outline: none; }
 .pin .dot { fill: var(--pin); stroke: #fff; stroke-width: 1.6; }
