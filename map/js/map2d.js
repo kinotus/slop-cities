@@ -19,12 +19,13 @@ export function pinRadius(place) { return 5 + Math.min(4, (place.entries.length 
 
 // Muted, print-like colours for the flat map (the globe keeps the full
 // palette). Land keeps its hue but loses most of its saturation and is lifted
-// toward a warm paper tone; the sea is a few flat bands of pale blue by depth,
-// like an atlas, rather than a shaded surface. Rounding to coarse steps merges
+// toward a warm paper tone; the sea (off by default) is a few flat bands of
+// dark water by depth, like Slop New York's map, rather than a shaded surface. Rounding to coarse steps merges
 // neighbouring facets of similar colour, so the land reads as broad patches.
 const PAPER = [246, 241, 228];
-const SEA = [[214, 230, 233], [200, 221, 228], [186, 210, 222], [172, 199, 215]];
-const SEA_ICE = [236, 241, 243];
+// Water in Slop New York's map palette: graphite blue, darker with depth.
+const SEA = [[24, 37, 46], [19, 30, 38], [15, 24, 31], [11, 18, 25]];
+const SEA_ICE = [52, 60, 68];
 function printInk([r, g, b], land, depth, lat) {
   if (!land) {
     if (lat > 78 || lat < -70) return SEA_ICE;
@@ -378,7 +379,8 @@ export function createMap2D(container, world, bus) {
     clampView();
     render(true, false);
   }
-  new ResizeObserver(resize).observe(container);
+  const ro = new ResizeObserver(resize);
+  ro.observe(container);
   resize();
 
   function setSelected(id) {
@@ -393,20 +395,31 @@ export function createMap2D(container, world, bus) {
     container.classList.toggle('no-ocean', !opts.ocean);
     drawOverlay();
   }
-  container.classList.add('no-ocean');
+  container.classList.toggle('no-ocean', !opts.ocean);
   function zoomBy(f) { animateZoomAt(W / 2, H / 2, f); }
   function reset() { flyTo(0, 0, 1); }
 
   // Arcs flow from parent to child: march their dashes along.
   let flowing = true;
+  let flowRaf = 0;
   (function flow(t) {
     if (flowing && opts.arcs && container.offsetParent !== null) {
       const u = 1 / k();
       for (const a of arcs) a.path.style.strokeDashoffset = (-(t / 1000) * 14 - a.phase) * u;
     }
-    requestAnimationFrame(flow);
+    flowRaf = requestAnimationFrame(flow);
   })(0);
   function setFlowing(on) { flowing = on; }
 
-  return { setSelected, setHovered, setOptions, setFlowing, flyTo, getView, setView, resize, zoomBy, reset, stats, el: container };
+  // Tear down before building the map again (e.g. in another projection).
+  function destroy() {
+    ro.disconnect();
+    cancelAnimationFrame(flowRaf);
+    cancelAnimationFrame(anim);
+    clearTimeout(commitTimer);
+    container.replaceChildren();
+    container.classList.remove('map2d', 'no-ocean', 'zoomed', 'dragging');
+  }
+
+  return { destroy, setSelected, setHovered, setOptions, setFlowing, flyTo, getView, setView, resize, zoomBy, reset, stats, el: container };
 }

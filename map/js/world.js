@@ -137,16 +137,20 @@ export function facetColor(lon, lat, h, land) {
   return c;
 }
 
-// ---------- projection (Equal Earth, Šavrič, Patterson & Jenny 2018) ----------
+// ---------- projections ----------
+// Equal Earth (Šavrič, Patterson & Jenny 2018): equal-area, rounded sides.
+// Patterson cylindrical (Patterson, Šavrič & Jenny 2015): a rectangle about
+// 1.75 : 1, close to a 16:9 screen, with less polar stretch than Miller.
+// Both return [x, y] in Earth radii with y pointing south (screen order).
 
 const A1 = 1.340264, A2 = -0.081106, A3 = 0.000893, A4 = 0.003796, M = Math.sqrt(3) / 2;
-export function project(lon, lat) {
+function equalEarth(lon, lat) {
   const t = Math.asin(M * Math.sin(lat * D2R)), t2 = t * t, t6 = t2 * t2 * t2;
   const x = (2 * Math.sqrt(3) * lon * D2R * Math.cos(t)) / (3 * (A1 + 3 * A2 * t2 + t6 * (7 * A3 + 9 * A4 * t2)));
   const y = t * (A1 + A2 * t2 + t6 * (A3 + A4 * t2));
   return [x, -y];
 }
-export function unproject(x, y) {
+function equalEarthInv(x, y) {
   y = -y;
   let t = y;
   for (let i = 0; i < 12; i++) {
@@ -159,8 +163,40 @@ export function unproject(x, y) {
   const lon = (3 * x * (A1 + 3 * A2 * t2 + t6 * (7 * A3 + 9 * A4 * t2))) / (2 * Math.sqrt(3) * Math.cos(t));
   return [lon / D2R, Math.asin(Math.max(-1, Math.min(1, Math.sin(t) / M))) / D2R];
 }
-export const MAP_W = project(180, 0)[0] * 2;
-export const MAP_H = -project(0, 90)[1] * 2;
+
+const PK1 = 1.0148, PK2 = 0.23185, PK3 = -0.14499, PK4 = 0.02406;
+function patterson(lon, lat) {
+  const p = lat * D2R, p2 = p * p;
+  return [lon * D2R, -p * (PK1 + p2 * p2 * (PK2 + p2 * (PK3 + PK4 * p2)))];
+}
+function pattersonInv(x, y) {
+  y = Math.max(-1.790857183, Math.min(1.790857183, -y));
+  let p = y;
+  for (let i = 0; i < 12; i++) {
+    const p2 = p * p, p4 = p2 * p2;
+    const f = p * (PK1 + p4 * (PK2 + p2 * (PK3 + PK4 * p2))) - y;
+    const df = PK1 + p4 * (5 * PK2 + p2 * (7 * PK3 + 9 * PK4 * p2));
+    p -= f / df;
+  }
+  return [x / D2R, p / D2R];
+}
+
+export const PROJECTIONS = {
+  patterson: { name: 'Patterson', note: 'Rectangle, about 1.75 : 1', fwd: patterson, inv: pattersonInv },
+  'equal-earth': { name: 'Equal Earth', note: 'Equal-area, rounded sides', fwd: equalEarth, inv: equalEarthInv },
+};
+let proj = PROJECTIONS.patterson;
+export let projectionId = 'patterson';
+export let MAP_W = 0, MAP_H = 0;
+export function setProjection(id) {
+  proj = PROJECTIONS[id] || PROJECTIONS.patterson;
+  projectionId = PROJECTIONS[id] ? id : 'patterson';
+  MAP_W = proj.fwd(180, 0)[0] * 2;
+  MAP_H = -proj.fwd(0, 90)[1] * 2;
+}
+export function project(lon, lat) { return proj.fwd(lon, lat); }
+export function unproject(x, y) { return proj.inv(x, y); }
+setProjection('patterson');
 
 // ---------- the point set ----------
 

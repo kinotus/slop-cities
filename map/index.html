@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Slop Cities · World map</title>
   <meta name="description" content="Every slop city on a low-poly world map and globe: browser city sims remixed from mrdoob's Slop New York.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath d=%22M12 2 3 7.5v9L12 22l9-5.5v-9Z%22 fill=%22%23ffc53d%22/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2212%22 fill=%22%23ffc21a%22/%3E%3C/svg%3E">
+  <!-- Inter (UI) & Overpass (street-sign labels), as in Slop New York -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&amp;family=Overpass:wght@600;700&amp;display=swap">
   <link rel="stylesheet" href="style.css">
   <script type="importmap">
     { "imports": {
@@ -15,52 +19,73 @@
   </script>
 </head>
 <body class="mode-2d">
-  <header class="bar">
-    <a class="brand" href="../" title="Back to the Awesome Slop Cities list">
-      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 2 3 7.5v9L12 22l9-5.5v-9Z" fill="#ffc53d"/><path d="M12 2v20M3 7.5l18 9M21 7.5l-18 9" stroke="#0b1430" stroke-width="1.2" fill="none" opacity=".45"/></svg>
-      <span><b>Slop Cities</b> <i>world map</i></span>
-    </a>
-    <div class="modes" role="tablist" aria-label="View">
-      <button role="tab" data-mode="2d" aria-selected="true">Map</button>
-      <button role="tab" data-mode="3d" aria-selected="false">Globe</button>
-      <button role="tab" data-mode="compare" aria-selected="false">Compare</button>
-    </div>
-    <div class="toggles">
-      <button class="tour" id="tour" aria-pressed="false" title="Fly from city to city">▶ Tour</button>
-      <label><input type="checkbox" id="opt-arcs"> Lineage</label>
-      <label class="only-2d"><input type="checkbox" id="opt-ocean"> Ocean</label>
-      <label><input type="checkbox" id="opt-labels" checked> Labels</label>
-      <label class="only-3d"><input type="checkbox" id="opt-clouds" checked> Clouds</label>
-      <label class="only-compare"><input type="checkbox" id="opt-link" checked> Link views</label>
-    </div>
-  </header>
-
-  <aside class="panel" id="panel">
-    <button class="panel-handle" id="panel-handle" aria-label="Show or hide the city list"></button>
-    <div class="search">
-      <input id="search" type="search" placeholder="Search cities, countries, authors…  ( / )" autocomplete="off" spellcheck="false">
-    </div>
-    <p class="stats" id="stats"></p>
-    <nav class="list" id="list" aria-label="Cities"></nav>
-    <p class="foot">Data: the <a href="../">Awesome Slop Cities</a> list · terrain <a href="https://registry.opendata.aws/terrain-tiles/">AWS Terrain Tiles</a> · coastlines <a href="https://www.naturalearthdata.com/">Natural Earth</a></p>
-  </aside>
-
   <main class="views" id="views">
     <section class="view view-2d" id="view-2d" aria-label="Flat map">
       <div class="stage" id="stage-2d"></div>
-      <div class="caption">Map · Equal Earth</div>
-      <div class="zoom"><button data-z="in" aria-label="Zoom in">+</button><button data-z="out" aria-label="Zoom out">−</button><button data-z="reset" aria-label="Whole world">⌂</button></div>
+      <div class="caption panel" id="caption-2d">Map · Patterson</div>
+      <div class="panel map-zoom"><button class="icon-btn" data-z="in" aria-label="Zoom in">+</button><button class="icon-btn" data-z="out" aria-label="Zoom out">−</button><button class="icon-btn" data-z="reset" aria-label="Whole world">⌂</button></div>
     </section>
     <section class="view view-3d" id="view-3d" aria-label="Globe">
       <div class="stage" id="stage-3d"></div>
-      <div class="caption">Globe · same facets, relief ×50</div>
-      <div class="zoom"><button data-z="in" aria-label="Zoom in">+</button><button data-z="out" aria-label="Zoom out">−</button><button data-z="reset" aria-label="Whole world">⌂</button></div>
+      <div class="caption panel">Globe · same facets, relief ×50</div>
+      <div class="panel map-zoom"><button class="icon-btn" data-z="in" aria-label="Zoom in">+</button><button class="icon-btn" data-z="out" aria-label="Zoom out">−</button><button class="icon-btn" data-z="reset" aria-label="Whole world">⌂</button></div>
       <div class="loading" id="loading-3d">Building the globe…</div>
     </section>
-    <article class="card" id="card" hidden></article>
-    <div class="tooltip" id="tooltip" hidden></div>
   </main>
-  <div class="boot" id="boot">Drawing the world…</div>
+
+  <header class="hud hud-top-left">
+    <div class="panel brand">
+      <span class="mta-bullet" aria-hidden="true">SC</span>
+      <div class="brand-titles">
+        <div class="brand-heading">
+          <h1>Slop Cities</h1>
+          <a class="repo-link" href="../" title="The Awesome Slop Cities list">List <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="brand-subtitle" id="brand-sub">World map</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="hud hud-top-right">
+    <div class="panel toolbar">
+      <div class="modes" role="tablist" aria-label="View">
+        <span class="mode-indicator" aria-hidden="true"></span>
+        <button class="mode-btn" role="tab" data-mode="2d" aria-selected="true">Map <kbd>1</kbd></button>
+        <button class="mode-btn" role="tab" data-mode="3d" aria-selected="false">Globe <kbd>2</kbd></button>
+        <button class="mode-btn" role="tab" data-mode="compare" aria-selected="false">Compare <kbd>3</kbd></button>
+      </div>
+      <span class="toolbar-divider"></span>
+      <button class="tool-btn" id="tour" aria-pressed="false" title="Fly from city to city">Tour</button>
+      <button class="tool-btn" id="layers-btn" popovertarget="layers" aria-label="Map layers and projection">Layers <span aria-hidden="true">▾</span></button>
+    </div>
+  </div>
+
+  <div class="popover" id="layers" popover>
+    <div class="pop-title">Layers</div>
+    <label class="pop-item"><span>Lineage arcs</span><input type="checkbox" id="opt-arcs"><i class="switch"></i></label>
+    <label class="pop-item"><span>City labels</span><input type="checkbox" id="opt-labels" checked><i class="switch"></i></label>
+    <label class="pop-item only-2d"><span>Ocean <small>flat map</small></span><input type="checkbox" id="opt-ocean"><i class="switch"></i></label>
+    <label class="pop-item only-3d"><span>Clouds <small>globe</small></span><input type="checkbox" id="opt-clouds" checked><i class="switch"></i></label>
+    <label class="pop-item only-compare"><span>Link the two views</span><input type="checkbox" id="opt-link" checked><i class="switch"></i></label>
+    <div class="pop-title only-2d">Map projection</div>
+    <label class="pop-item radio only-2d"><span>Patterson <small>rectangle, about 1.75 : 1</small></span><input type="radio" name="proj" value="patterson" checked><i class="dot"></i></label>
+    <label class="pop-item radio only-2d"><span>Equal Earth <small>equal-area, rounded sides</small></span><input type="radio" name="proj" value="equal-earth"><i class="dot"></i></label>
+  </div>
+
+  <aside class="panel side" id="panel">
+    <button class="panel-handle" id="panel-handle" aria-label="Show or hide the city list"></button>
+    <label class="search">
+      <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="search" type="search" placeholder="Search cities, countries, authors" autocomplete="off" spellcheck="false">
+      <kbd>/</kbd>
+    </label>
+    <p class="stats" id="stats"></p>
+    <nav class="list" id="list" aria-label="Cities"></nav>
+    <p class="foot">Terrain <a href="https://registry.opendata.aws/terrain-tiles/">AWS Terrain Tiles</a> · coastlines <a href="https://www.naturalearthdata.com/">Natural Earth</a></p>
+  </aside>
+
+  <article class="panel card" id="card" hidden></article>
+  <div class="boot" id="boot"><span class="mta-bullet">SC</span> Drawing the world…</div>
 
   <script type="module" src="js/app.js"></script>
 </body>

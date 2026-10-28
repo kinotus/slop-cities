@@ -51,7 +51,7 @@ function atmosphere() {
     new THREE.ShaderMaterial({
       side: THREE.BackSide, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
       vertexShader: 'varying vec3 vN; varying vec3 vV; void main(){ vN = normalize(normalMatrix*normal); vec4 mv = modelViewMatrix*vec4(position,1.); vV = normalize(-mv.xyz); gl_Position = projectionMatrix*mv; }',
-      fragmentShader: 'varying vec3 vN; varying vec3 vV; void main(){ float i = pow(max(0.0, 0.72 - dot(vN, vV)), 5.0); gl_FragColor = vec4(0.36, 0.64, 1.0, 1.0) * min(1.0, i * 0.32); }',
+      fragmentShader: 'varying vec3 vN; varying vec3 vV; void main(){ float i = pow(max(0.0, 0.72 - dot(vN, vV)), 5.0); gl_FragColor = vec4(0.55, 0.7, 0.9, 1.0) * min(1.0, i * 0.22); }',
     }),
   );
 }
@@ -66,7 +66,7 @@ function stars() {
   }
   const g = new THREE.BufferGeometry();
   g.setAttribute('position', new THREE.BufferAttribute(p, 3));
-  return new THREE.Points(g, new THREE.PointsMaterial({ color: 0xbfd4ff, size: 1.6, sizeAttenuation: false, transparent: true, opacity: 0.7 }));
+  return new THREE.Points(g, new THREE.PointsMaterial({ color: 0xd8d6d0, size: 1.4, sizeAttenuation: false, transparent: true, opacity: 0.7 }));
 }
 
 function clouds() {
@@ -149,14 +149,15 @@ export async function createGlobe3D(container, world, bus) {
   const stemGeo = new THREE.CylinderGeometry(0.18, 0.02, 1, 6, 1);
   stemGeo.translate(0, 0.5, 0);
   const hitGeo = new THREE.SphereGeometry(1, 8, 6);
-  const colPin = new THREE.Color('#ff5a5f'), colOrig = new THREE.Color('#ffc53d'), colSel = new THREE.Color('#ffffff');
+  // Slop New York's HUD colours: white markers, taxi yellow for New York and for the selection.
+  const colPin = new THREE.Color('#f6f5f2'), colOrig = new THREE.Color('#ffc21a'), colSel = new THREE.Color('#ffc21a');
   const pins = world.cities.map((p) => {
     const g = new THREE.Group();
     const up = new THREE.Vector3(...toXYZ(p.lon, p.lat)).normalize();
     const ground = 1 + Math.max(0, heightNear(world, p)) * RELIEF;
     g.position.copy(up).multiplyScalar(ground);
     g.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), up);
-    const mat = new THREE.MeshLambertMaterial({ color: p.original ? colOrig : colPin, flatShading: true, emissive: p.original ? 0x553300 : 0x440808 });
+    const mat = new THREE.MeshLambertMaterial({ color: p.original ? colOrig : colPin, flatShading: true, emissive: p.original ? 0x4a3500 : 0x202020 });
     const stem = new THREE.Mesh(stemGeo, mat);
     const head = new THREE.Mesh(headGeo, mat);
     const hit = new THREE.Mesh(hitGeo, new THREE.MeshBasicMaterial({ visible: false }));
@@ -199,7 +200,7 @@ export async function createGlobe3D(container, world, bus) {
     const curve = new THREE.CatmullRomCurve3(pts);
     const mat = new THREE.ShaderMaterial({
       transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
-      uniforms: { uTime: { value: 0 }, uLen: { value: gc[0].angle + lift }, uColor: { value: new THREE.Color(parentId === 'new-york' ? '#ffd27a' : '#ff8fd0') }, uOpacity: { value: 0.85 }, uPhase: { value: Math.random() * 10 } },
+      uniforms: { uTime: { value: 0 }, uLen: { value: gc[0].angle + lift }, uColor: { value: new THREE.Color(parentId === 'new-york' ? '#ffc21a' : '#5fd0ff') }, uOpacity: { value: 0.85 }, uPhase: { value: Math.random() * 10 } },
       vertexShader: arcVertex, fragmentShader: arcFragment,
     });
     const mesh = new THREE.Mesh(new THREE.TubeGeometry(curve, 96, 0.0032, 5, false), mat);

@@ -1,6 +1,6 @@
 // App shell: city list, search, city card, Map / Globe / Compare modes, and
 // the wiring that keeps selection (and, in Compare, the view) in sync.
-import { loadWorld, distanceKm } from './world.js';
+import { loadWorld, distanceKm, setProjection, projectionId, PROJECTIONS } from './world.js';
 import { createMap2D } from './map2d.js';
 
 const $ = (s) => document.querySelector(s);
@@ -17,7 +17,9 @@ const places = world.cities;
 const byId = new Map(places.map((p) => [p.id, p]));
 const ny = byId.get('new-york');
 
-const map = createMap2D($('#stage-2d'), world, bus);
+// The projection is read from the URL before the map is first built.
+setProjection(new URLSearchParams(location.hash.slice(1)).get('proj') || 'patterson');
+let map = createMap2D($('#stage-2d'), world, bus);
 let globe = null, globePromise = null;
 function ensureGlobe() {
   if (!globePromise) {
@@ -43,7 +45,8 @@ const state = { mode: '2d', selected: null, hovered: null, query: '' };
 const takes = places.reduce((n, p) => n + p.entries.length, 0);
 const countries = new Set(places.map((p) => p.country || p.city)).size;
 const far = places.filter((p) => !p.original).reduce((a, p) => (distanceKm(ny.lon, ny.lat, p.lon, p.lat) > distanceKm(ny.lon, ny.lat, a.lon, a.lat) ? p : a));
-$('#stats').innerHTML = `<b>${places.length}</b> cities · <b>${takes}</b> takes · <b>${countries}</b> countries · <b>${ny.remixes.length}</b> New York remixes<br><span>Farthest from New York: ${esc(far.city)}, ${Math.round(distanceKm(ny.lon, ny.lat, far.lon, far.lat)).toLocaleString()} km</span>`;
+$('#brand-sub').textContent = `World map · ${places.length} cities · ${takes} takes · ${countries} countries`;
+$('#stats').innerHTML = `${ny.remixes.length} New York remixes · farthest from New York: ${esc(far.city)}, ${Math.round(distanceKm(ny.lon, ny.lat, far.lon, far.lat)).toLocaleString()} km`;
 
 const REGIONS = ['North America', 'South America', 'Europe', 'Africa', 'Asia'];
 function renderList() {
@@ -160,12 +163,23 @@ function setMode(mode) {
   state.mode = mode;
   document.body.className = 'mode-' + mode;
   for (const b of document.querySelectorAll('.modes button')) b.setAttribute('aria-selected', b.dataset.mode === mode);
+  placeIndicator();
   if (mode !== '2d') ensureGlobe().then((g) => { g.resize(); g.setRunning(true); if (mode === 'compare' && $('#opt-link').checked && !state.selected) g.setView(map.getView()); });
   else globe?.setRunning(false);
   requestAnimationFrame(() => map.resize());
   writeHash();
 }
 for (const b of document.querySelectorAll('.modes button')) b.addEventListener('click', () => setMode(b.dataset.mode));
+// The taxi-yellow pill glides under the selected mode, as in Slop New York.
+function placeIndicator() {
+  const b = document.querySelector('.modes button[aria-selected="true"]');
+  const ind = document.querySelector('.mode-indicator');
+  if (!b || !ind) return;
+  ind.style.setProperty('--ind-x', b.offsetLeft + 'px');
+  ind.style.setProperty('--ind-w', b.offsetWidth + 'px');
+}
+addEventListener('resize', placeIndicator);
+document.fonts?.ready.then(placeIndicator);
 
 function currentOpts() {
   return { arcs: $('#opt-arcs').checked, labels: $('#opt-labels').checked, clouds: $('#opt-clouds').checked, ocean: $('#opt-ocean').checked };
@@ -174,7 +188,27 @@ map.setOptions(currentOpts());
 for (const id of ['opt-arcs', 'opt-labels', 'opt-clouds', 'opt-ocean']) $('#' + id).addEventListener('change', () => { map.setOptions(currentOpts()); globe?.setOptions(currentOpts()); });
 $('#opt-link').addEventListener('change', (e) => { if (e.target.checked) globe?.setView(map.getView()); });
 
-for (const z of document.querySelectorAll('.zoom button')) z.addEventListener('click', () => {
+// Projection: rebuild the flat map, keeping the selection and the place in view.
+function applyProjection(id) {
+  if (id === projectionId) return;
+  const v = map.getView();
+  map.destroy();
+  setProjection(id);
+  map = createMap2D($('#stage-2d'), world, bus);
+  map.setOptions(currentOpts());
+  map.setSelected(state.selected);
+  map.setView(v);
+  syncProjectionUI();
+  writeHash();
+}
+function syncProjectionUI() {
+  for (const r of document.querySelectorAll('input[name=proj]')) r.checked = r.value === projectionId;
+  $('#caption-2d').textContent = 'Map · ' + PROJECTIONS[projectionId].name;
+}
+for (const r of document.querySelectorAll('input[name=proj]')) r.addEventListener('change', () => r.checked && applyProjection(r.value));
+syncProjectionUI();
+
+for (const z of document.querySelectorAll('.map-zoom button')) z.addEventListener('click', () => {
   const v = z.closest('.view').classList.contains('view-2d') ? map : globe;
   if (!v) return;
   if (z.dataset.z === 'reset') v.reset(); else v.zoomBy(z.dataset.z === 'in' ? 1.8 : 1 / 1.8);
@@ -183,7 +217,7 @@ for (const z of document.querySelectorAll('.zoom button')) z.addEventListener('c
 // ---------- tour ----------
 let tourTimer = 0;
 const tourOrder = [ny, ...places.filter((p) => !p.original).sort((a, b) => a.lon - b.lon)];
-function stopTour() { clearInterval(tourTimer); tourTimer = 0; $('#tour').setAttribute('aria-pressed', 'false'); $('#tour').textContent = '▶ Tour'; }
+function stopTour() { clearInterval(tourTimer); tourTimer = 0; $('#tour').setAttribute('aria-pressed', 'false'); $('#tour').textContent = 'Tour'; }
 $('#tour').addEventListener('click', () => {
   if (tourTimer) { stopTour(); return; }
   let i = Math.max(0, tourOrder.findIndex((p) => p.id === state.selected));
@@ -191,12 +225,12 @@ $('#tour').addEventListener('click', () => {
   next();
   tourTimer = setInterval(next, 3800);
   $('#tour').setAttribute('aria-pressed', 'true');
-  $('#tour').textContent = '■ Stop';
+  $('#tour').textContent = 'Stop tour';
 });
 
 // ---------- keyboard, panel, hash ----------
 document.addEventListener('keydown', (e) => {
-  if (e.target.matches('input')) return;
+  if (e.target.matches('input[type=search], input[type=text]')) return;
   if (e.key === '/') { e.preventDefault(); $('#search').focus(); }
   else if (e.key === 'Escape') bus.emit('select', { id: null, source: 'key' });
   else if (e.key === '1') setMode('2d');
@@ -209,6 +243,7 @@ function writeHash() {
   const h = new URLSearchParams();
   if (state.mode !== '2d') h.set('view', state.mode === '3d' ? 'globe' : 'compare');
   if (state.selected) h.set('city', state.selected);
+  if (projectionId !== 'patterson') h.set('proj', projectionId);
   const s = h.toString();
   history.replaceState(null, '', s ? '#' + s : location.pathname + location.search);
 }
@@ -216,6 +251,7 @@ function readHash() {
   const h = new URLSearchParams(location.hash.slice(1));
   const v = h.get('view');
   setMode(v === 'globe' ? '3d' : v === 'compare' ? 'compare' : '2d');
+  if (h.get('proj') && PROJECTIONS[h.get('proj')]) applyProjection(h.get('proj'));
   const c = h.get('city');
   if (c && byId.has(c)) bus.emit('select', { id: c, source: 'hash' });
 }
@@ -226,4 +262,4 @@ if (matchMedia('(max-width: 820px)').matches) $('#panel').classList.add('collaps
 bus.on('select', ({ id }) => { if (id && matchMedia('(max-width: 820px)').matches) $('#panel').classList.add('collapsed'); });
 $('#boot').remove();
 // For checks and the console.
-window.slopMap = { world, map, get globe() { return globe; }, bus, state, setMode, ensureGlobe };
+window.slopMap = { world, get map() { return map; }, get globe() { return globe; }, bus, state, setMode, ensureGlobe };
