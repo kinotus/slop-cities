@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Slop Cities · World map</title>
+  <meta name="description" content="Every slop city on a low-poly world map and globe: browser city sims remixed from mrdoob's Slop New York.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath d=%22M12 2 3 7.5v9L12 22l9-5.5v-9Z%22 fill=%22%23ffc53d%22/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    { "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    } }
+  </script>
+</head>
+<body class="mode-2d">
+  <header class="bar">
+    <a class="brand" href="../" title="Back to the Awesome Slop Cities list">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 2 3 7.5v9L12 22l9-5.5v-9Z" fill="#ffc53d"/><path d="M12 2v20M3 7.5l18 9M21 7.5l-18 9" stroke="#0b1430" stroke-width="1.2" fill="none" opacity=".45"/></svg>
+      <span><b>Slop Cities</b> <i>world map</i></span>
+    </a>
+    <div class="modes" role="tablist" aria-label="View">
+      <button role="tab" data-mode="2d" aria-selected="true">Map</button>
+      <button role="tab" data-mode="3d" aria-selected="false">Globe</button>
+      <button role="tab" data-mode="compare" aria-selected="false">Compare</button>
+    </div>
+    <div class="toggles">
+      <button class="tour" id="tour" aria-pressed="false" title="Fly from city to city">▶ Tour</button>
+      <label><input type="checkbox" id="opt-arcs" checked> Lineage</label>
+      <label><input type="checkbox" id="opt-labels" checked> Labels</label>
+      <label class="only-3d"><input type="checkbox" id="opt-clouds" checked> Clouds</label>
+      <label class="only-compare"><input type="checkbox" id="opt-link" checked> Link views</label>
+    </div>
+  </header>
+
+  <aside class="panel" id="panel">
+    <button class="panel-handle" id="panel-handle" aria-label="Show or hide the city list"></button>
+    <div class="search">
+      <input id="search" type="search" placeholder="Search cities, countries, authors…  ( / )" autocomplete="off" spellcheck="false">
+    </div>
+    <p class="stats" id="stats"></p>
+    <nav class="list" id="list" aria-label="Cities"></nav>
+    <p class="foot">Data: the <a href="../">Awesome Slop Cities</a> list · terrain <a href="https://registry.opendata.aws/terrain-tiles/">AWS Terrain Tiles</a> · coastlines <a href="https://www.naturalearthdata.com/">Natural Earth</a></p>
+  </aside>
+
+  <main class="views" id="views">
+    <section class="view view-2d" id="view-2d" aria-label="Flat map">
+      <div class="stage" id="stage-2d"></div>
+      <div class="caption">Map · Equal Earth</div>
+      <div class="zoom"><button data-z="in" aria-label="Zoom in">+</button><button data-z="out" aria-label="Zoom out">−</button><button data-z="reset" aria-label="Whole world">⌂</button></div>
+    </section>
+    <section class="view view-3d" id="view-3d" aria-label="Globe">
+      <div class="stage" id="stage-3d"></div>
+      <div class="caption">Globe · same facets, relief ×50</div>
+      <div class="zoom"><button data-z="in" aria-label="Zoom in">+</button><button data-z="out" aria-label="Zoom out">−</button><button data-z="reset" aria-label="Whole world">⌂</button></div>
+      <div class="loading" id="loading-3d">Building the globe…</div>
+    </section>
+    <article class="card" id="card" hidden></article>
+    <div class="tooltip" id="tooltip" hidden></div>
+  </main>
+  <div class="boot" id="boot">Drawing the world…</div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

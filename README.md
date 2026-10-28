@@ -2,6 +2,8 @@
 
 A curated list of **slop cities**: browser city simulations in the spirit of [mrdoob](https://github.com/mrdoob)'s [Slop New York](https://github.com/mrdoob/slop-newyork), plus their forks, remixes and variants.
 
+**[See every city on the world map →](https://zz85.github.io/slop-cities/map/)** (a low-poly flat map and globe, side by side)
+
 > Slop New York is a New York City simulation built with three.js, WebGPURenderer and TSL. Explore Manhattan on foot, by car, by bicycle, or by helicopter. "Fork it, remix it, improve it, break it."
 
 ## Featured

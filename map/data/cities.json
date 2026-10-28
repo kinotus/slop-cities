@@ -1,0 +1,1072 @@
+{
+ "generated": "2026-10-28",
+ "places": [
+  {
+   "id": "new-york",
+   "city": "New York",
+   "country": "USA",
+   "region": "North America",
+   "lat": 40.758,
+   "lon": -73.9855,
+   "original": true,
+   "entries": [
+    {
+     "title": "New York, USA",
+     "links": {
+      "play": "https://mrdoob.github.io/slop-newyork/",
+      "source": "https://github.com/mrdoob/slop-newyork",
+      "tweet": "https://x.com/mrdoob/status/2113177383658561721"
+     },
+     "author": "@mrdoob",
+     "authorUrl": "https://x.com/mrdoob",
+     "desc": "Manhattan on foot, car, bicycle or helicopter.",
+     "flags": [],
+     "screenshot": "screenshots/newyork.jpg",
+     "tag": null
+    }
+   ],
+   "remixes": [
+    {
+     "title": "City Life Simulator",
+     "links": {
+      "source": "https://github.com/desurfofficial-ship-it/slop-newyork"
+     },
+     "author": "desurfofficial-ship-it",
+     "authorUrl": "https://github.com/desurfofficial-ship-it",
+     "desc": "Subway, money, apartments, jobs and New Yorkers on top of the original.",
+     "flags": [
+      "source only"
+     ],
+     "screenshot": null
+    },
+    {
+     "title": "Extinction Avenue",
+     "links": {
+      "play": "https://midagedev.github.io/extinction-avenue/",
+      "source": "https://github.com/midagedev/extinction-avenue"
+     },
+     "author": "midagedev",
+     "authorUrl": "https://github.com/midagedev",
+     "desc": "Arcade dino-outbreak car shooter in Midtown.",
+     "flags": [],
+     "screenshot": null
+    },
+    {
+     "title": "Flying Car Simulator",
+     "links": {
+      "play": "https://flyingcarsimulator.io",
+      "tweet": "https://x.com/josephzhangai/status/2114743491196850426"
+     },
+     "author": "@josephzhangai",
+     "authorUrl": "https://x.com/josephzhangai",
+     "desc": "Fly a Roadster over 1:1 Manhattan with live traffic.",
+     "flags": [],
+     "screenshot": null
+    },
+    {
+     "title": "Low-end GPU fork",
+     "links": {
+      "play": "https://denzy7.github.io/slop-newyork/",
+      "source": "https://github.com/Denzy7/slop-newyork"
+     },
+     "author": "Denzy7",
+     "authorUrl": "https://github.com/Denzy7",
+     "desc": "Performance rewrite for weak GPUs and browsers without WebGPU.",
+     "flags": [],
+     "screenshot": null
+    },
+    {
+     "title": "Pocket New York",
+     "links": {
+      "source": "https://github.com/pocket-nexus/pocket-newyork",
+      "tweet": "https://x.com/pocket_js/status/2113974954131882181"
+     },
+     "author": "@pocket_js",
+     "authorUrl": "https://x.com/pocket_js",
+     "desc": "Slop New York compiled with Pocket3D to run on a PS Vita.",
+     "flags": [
+      "WIP"
+     ],
+     "screenshot": null
+    },
+    {
+     "title": "Real terrain",
+     "links": {
+      "play": "https://pablo-mayrgundter.github.io/slop-newyork/?ground=terrain",
+      "source": "https://github.com/pablo-mayrgundter/slop-newyork"
+     },
+     "author": "pablo-mayrgundter",
+     "authorUrl": "https://github.com/pablo-mayrgundter",
+     "desc": "Drives the city over Manhattan's real ground.",
+     "flags": [],
+     "screenshot": null
+    },
+    {
+     "title": "Taxi fares",
+     "links": {
+      "play": "https://mrubens.github.io/new-york/",
+      "source": "https://github.com/mrubens/new-york"
+     },
+     "author": "mrubens",
+     "authorUrl": "https://github.com/mrubens",
+     "desc": "Drive taxi fares against the clock.",
+     "flags": [],
+     "screenshot": null
+    },
+    {
+     "title": "Unity port",
+     "links": {
+      "source": "https://github.com/jdlp2442/port-slop-newyork"
+     },
+     "author": "jdlp2442",
+     "authorUrl": "https://github.com/jdlp2442",
+     "desc": "1:1 port to Unity 6 / URP 17.",
+     "flags": [],
+     "screenshot": null
+    },
+    {
+     "title": "Valdrada",
+     "links": {
+      "play": "http://mehmetkeremturkcan.com/valdrada/",
+      "source": "https://github.com/mkturkcan/valdrada",
+      "tweet": "https://x.com/mkturkcan/status/2108946258081743097"
+     },
+     "author": "@mkturkcan",
+     "authorUrl": "https://x.com/mkturkcan",
+     "desc": "A real-time New York digital twin from public records, with Unreal Engine 5 and three.js renderers, lane-level traffic and pedestrians, and a CARLA-style API for simulation and synthetic data. Predates Slop New York.",
+     "flags": [],
+     "screenshot": null
+    }
+   ],
+   "parents": []
+  },
+  {
+   "id": "abuja",
+   "city": "Abuja",
+   "country": "Nigeria",
+   "region": "Africa",
+   "lat": 9.0579,
+   "lon": 7.4951,
+   "original": false,
+   "entries": [
+    {
+     "title": "Abuja, Nigeria",
+     "links": {
+      "play": "https://abujatour.site/",
+      "tweet": "https://x.com/0xkodesage/status/2113449044206920085"
+     },
+     "author": "@0xkodesage",
+     "authorUrl": "https://x.com/0xkodesage",
+     "desc": "Nigeria's capital: 37,373 buildings, Aso Rock at full height, place search and turn-by-turn directions.",
+     "flags": [],
+     "screenshot": "screenshots/abuja.jpg",
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "kaduna",
+   "city": "Kaduna",
+   "country": "Nigeria",
+   "region": "Africa",
+   "lat": 10.5105,
+   "lon": 7.4165,
+   "original": false,
+   "entries": [
+    {
+     "title": "Kaduna, Nigeria",
+     "links": {
+      "play": "https://kaduna-need-for-speed.vercel.app",
+      "source": "https://github.com/Akay-mighty/Kaduna-need-for-speed-"
+     },
+     "author": "Akay-mighty",
+     "authorUrl": "https://github.com/Akay-mighty",
+     "desc": "Kaduna Need for Speed: a Cybertruck around a low-poly Kaduna circuit, borrowing Slop New York's car physics and chase camera.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "bangkok",
+   "city": "Bangkok",
+   "country": "Thailand",
+   "region": "Asia",
+   "lat": 13.7367,
+   "lon": 100.5608,
+   "original": false,
+   "entries": [
+    {
+     "title": "Bangkok, Thailand",
+     "links": {
+      "source": "https://github.com/olivalcf/slop-bangkok"
+     },
+     "author": "olivalcf",
+     "authorUrl": "https://github.com/olivalcf",
+     "desc": "A stylized Bangkok around Sukhumvit, with meter taxis.",
+     "flags": [
+      "source only"
+     ],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "dubai",
+   "city": "Dubai",
+   "country": "UAE",
+   "region": "Asia",
+   "lat": 25.1972,
+   "lon": 55.2744,
+   "original": false,
+   "entries": [
+    {
+     "title": "Dubai, UAE",
+     "links": {
+      "play": "https://slop-dubai-kfmedia.netlify.app/",
+      "tweet": "https://x.com/kayf2010/status/2114050750074548626"
+     },
+     "author": "@kayf2010",
+     "authorUrl": "https://x.com/kayf2010",
+     "desc": "Slop Dubai: jump to Burj Khalifa, Museum of the Future, Dubai Frame, Burj Al Arab, Palm Jumeirah and Dubai Marina.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "hong-kong",
+   "city": "Hong Kong",
+   "country": null,
+   "region": "Asia",
+   "lat": 22.2988,
+   "lon": 114.1722,
+   "original": false,
+   "entries": [
+    {
+     "title": "Hong Kong",
+     "links": {
+      "source": "https://github.com/keithligh/slop-hongkong"
+     },
+     "author": "keithligh",
+     "authorUrl": "https://github.com/keithligh",
+     "desc": "Hong Kong Island and Kowloon from LandsD buildings and OSM.",
+     "flags": [
+      "source only"
+     ],
+     "screenshot": null,
+     "tag": null
+    },
+    {
+     "title": "Hong Kong (swankchan)",
+     "links": {
+      "source": "https://github.com/swankchan/slop-hongkong"
+     },
+     "author": "swankchan",
+     "authorUrl": "https://github.com/swankchan",
+     "desc": "Central to Mong Kok on both sides of Victoria Harbour, with left-hand traffic.",
+     "flags": [
+      "source only, WIP"
+     ],
+     "screenshot": null,
+     "tag": "swankchan"
+    },
+    {
+     "title": "Hong Kong (Night Patrol)",
+     "links": {
+      "play": "https://hkpolice.9chives.com/",
+      "source": "https://github.com/linxichen/sdu-night-patrol"
+     },
+     "author": "linxichen",
+     "authorUrl": "https://github.com/linxichen",
+     "desc": "Kid-friendly third-person street game on Nathan Road, Yau Tsim Mong.",
+     "flags": [],
+     "screenshot": null,
+     "tag": "Night Patrol"
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "riyadh",
+   "city": "Riyadh",
+   "country": "Saudi Arabia",
+   "region": "Asia",
+   "lat": 24.7136,
+   "lon": 46.6753,
+   "original": false,
+   "entries": [
+    {
+     "title": "Riyadh, Saudi Arabia",
+     "links": {
+      "play": "https://aymn74.github.io/riyadh-360/",
+      "source": "https://github.com/Aymn74/riyadh-360"
+     },
+     "author": "Aymn74",
+     "authorUrl": "https://github.com/Aymn74",
+     "desc": "Riyadh 360: 3D city explorer and virtual tours from OpenStreetMap.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "shanghai",
+   "city": "Shanghai",
+   "country": "China",
+   "region": "Asia",
+   "lat": 31.2397,
+   "lon": 121.4998,
+   "original": false,
+   "entries": [
+    {
+     "title": "Shanghai, China",
+     "links": {
+      "play": "https://shanghai.datiaomao.com/",
+      "source": "https://github.com/YakirLove/ShangHai"
+     },
+     "author": "YakirLove",
+     "authorUrl": "https://github.com/YakirLove",
+     "desc": "Shanghai Roam: the Huangpu, the Bund and Lujiazui.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "singapore",
+   "city": "Singapore",
+   "country": null,
+   "region": "Asia",
+   "lat": 1.2834,
+   "lon": 103.8607,
+   "original": false,
+   "entries": [
+    {
+     "title": "Singapore",
+     "links": {
+      "play": "https://zz85.github.io/slop-singapore/",
+      "source": "https://github.com/zz85/slop-singapore",
+      "tweet": "https://x.com/BlurSpline/status/2114222434425745531"
+     },
+     "author": "@BlurSpline",
+     "authorUrl": "https://x.com/BlurSpline",
+     "desc": "Singapore landmarks, an accurate tree database, tropical thunderstorms, haze, navigation and self-driving.",
+     "flags": [],
+     "screenshot": "screenshots/singapore.jpg",
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "taipei",
+   "city": "Taipei",
+   "country": "Taiwan",
+   "region": "Asia",
+   "lat": 25.0375,
+   "lon": 121.5637,
+   "original": false,
+   "entries": [
+    {
+     "title": "Taipei, Taiwan",
+     "links": {
+      "play": "https://shwang1979.github.io/slop-taipei/",
+      "source": "https://github.com/shwang1979/slop-taipei"
+     },
+     "author": "shwang1979",
+     "authorUrl": "https://github.com/shwang1979",
+     "desc": "Slop 台北: Wanhua and Ximending to Xinyi and Taipei 101, by taxi, scooter or helicopter.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    },
+    {
+     "title": "Taipei, Taiwan (hebe13579)",
+     "links": {
+      "play": "https://hebe13579.github.io/slop-taipei/?city=taipei",
+      "source": "https://github.com/hebe13579/slop-taipei"
+     },
+     "author": "hebe13579",
+     "authorUrl": "https://github.com/hebe13579",
+     "desc": "Taipei Basin with rivers and bridges.",
+     "flags": [],
+     "screenshot": null,
+     "tag": "hebe13579"
+    },
+    {
+     "title": "Taipei, Taiwan (sc0Vu)",
+     "links": {
+      "play": "https://sc0vu.github.io/slop-taipei/",
+      "source": "https://github.com/sc0Vu/slop-taipei"
+     },
+     "author": "sc0Vu",
+     "authorUrl": "https://github.com/sc0Vu",
+     "desc": "",
+     "flags": [],
+     "screenshot": null,
+     "tag": "sc0Vu"
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "barcelona",
+   "city": "Barcelona",
+   "country": "Spain",
+   "region": "Europe",
+   "lat": 41.3874,
+   "lon": 2.1686,
+   "original": false,
+   "entries": [
+    {
+     "title": "Barcelona, Spain",
+     "links": {
+      "play": "https://biko8.github.io/slop-barcelona/",
+      "source": "https://github.com/biko8/slop-barcelona"
+     },
+     "author": "biko8",
+     "authorUrl": "https://github.com/biko8",
+     "desc": "Cerdà's Eixample with its chamfered blocks and inner courtyards, Ciutat Vella, Gràcia and Sants.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "berlin",
+   "city": "Berlin",
+   "country": "Germany",
+   "region": "Europe",
+   "lat": 52.5163,
+   "lon": 13.3777,
+   "original": false,
+   "entries": [
+    {
+     "title": "Berlin, Germany",
+     "links": {
+      "play": "https://www.aaronjcunningham.com/play/berlin",
+      "tweet": "https://x.com/Aaron_1337/status/2113969912158847343"
+     },
+     "author": "@Aaron_1337",
+     "authorUrl": "https://x.com/Aaron_1337",
+     "desc": "Berlin's street map, and pedestrians who scream and jump out of the way of bad driving.",
+     "flags": [],
+     "screenshot": "screenshots/berlin.jpg",
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "copenhagen",
+   "city": "Copenhagen",
+   "country": "Denmark",
+   "region": "Europe",
+   "lat": 55.6761,
+   "lon": 12.5683,
+   "original": false,
+   "entries": [
+    {
+     "title": "Copenhagen, Denmark",
+     "links": {
+      "play": "https://martincollignon.github.io/copenhagen-twin/",
+      "source": "https://github.com/martincollignon/copenhagen-twin"
+     },
+     "author": "martincollignon",
+     "authorUrl": "https://github.com/martincollignon",
+     "desc": "A city twin with real building data and Skråfoto facade textures.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "donostia-san-sebastian",
+   "city": "Donostia / San Sebastián",
+   "country": "Spain",
+   "region": "Europe",
+   "lat": 43.3183,
+   "lon": -1.9812,
+   "original": false,
+   "entries": [
+    {
+     "title": "Donostia / San Sebastián, Spain",
+     "links": {
+      "play": "https://ginocingolani.github.io/slop-donostia/",
+      "source": "https://github.com/ginocingolani/slop-donostia"
+     },
+     "author": "ginocingolani",
+     "authorUrl": "https://github.com/ginocingolani",
+     "desc": "",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "kahramanmaras",
+   "city": "Kahramanmaraş",
+   "country": "Türkiye",
+   "region": "Europe",
+   "lat": 37.5753,
+   "lon": 36.9228,
+   "original": false,
+   "entries": [
+    {
+     "title": "Kahramanmaraş, Türkiye",
+     "links": {
+      "play": "https://mhmmd5225.github.io/SLOPMARAS/",
+      "source": "https://github.com/mhmmd5225/SLOPMARAS"
+     },
+     "author": "mhmmd5225",
+     "authorUrl": "https://github.com/mhmmd5225",
+     "desc": "SLOPMARAS: 40,000+ buildings, the castle and Ulu Camii, navigation and self-driving taxis. Adapted from Slop New York and Slop Singapore.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york",
+    "singapore"
+   ]
+  },
+  {
+   "id": "kazan",
+   "city": "Kazan",
+   "country": "Russia",
+   "region": "Europe",
+   "lat": 55.7963,
+   "lon": 49.1088,
+   "original": false,
+   "entries": [
+    {
+     "title": "Kazan, Russia",
+     "links": {
+      "play": "https://kazan.adelnz.com/",
+      "source": "https://github.com/meoyawn/slop-kazan"
+     },
+     "author": "meoyawn",
+     "authorUrl": "https://github.com/meoyawn",
+     "desc": "Kazan and surroundings, Tatarstan.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "london",
+   "city": "London",
+   "country": "UK",
+   "region": "Europe",
+   "lat": 51.5072,
+   "lon": -0.1276,
+   "original": false,
+   "entries": [
+    {
+     "title": "London, UK",
+     "links": {
+      "play": "https://nelsonchris1.github.io/london-loop/",
+      "source": "https://github.com/nelsonchris1/london-loop",
+      "tweet": "https://x.com/Nelson_christof/status/2113986000112296170"
+     },
+     "author": "@Nelson_christof",
+     "authorUrl": "https://x.com/Nelson_christof",
+     "desc": "London Loop: a GTA-style 1:1 Zone 1. Drive a bus and work shifts.",
+     "flags": [],
+     "screenshot": "screenshots/london.jpg",
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "madrid",
+   "city": "Madrid",
+   "country": "Spain",
+   "region": "Europe",
+   "lat": 40.4168,
+   "lon": -3.7038,
+   "original": false,
+   "entries": [
+    {
+     "title": "Madrid, Spain",
+     "links": {
+      "play": "https://germanpadua.github.io/slop-madrid/",
+      "source": "https://github.com/germanpadua/slop-madrid"
+     },
+     "author": "germanpadua",
+     "authorUrl": "https://github.com/germanpadua",
+     "desc": "",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "montreux",
+   "city": "Montreux",
+   "country": "Switzerland",
+   "region": "Europe",
+   "lat": 46.4312,
+   "lon": 6.9107,
+   "original": false,
+   "entries": [
+    {
+     "title": "Montreux, Switzerland",
+     "links": {
+      "play": "https://montreux-drift.pages.dev/",
+      "tweet": "https://x.com/bchapuis/status/2114778049204129827"
+     },
+     "author": "@bchapuis",
+     "authorUrl": "https://x.com/bchapuis",
+     "desc": "Montreux Drift, with real relief down to Lake Geneva.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "oslo",
+   "city": "Oslo",
+   "country": "Norway",
+   "region": "Europe",
+   "lat": 59.9139,
+   "lon": 10.7522,
+   "original": false,
+   "entries": [
+    {
+     "title": "Oslo, Norway",
+     "links": {
+      "source": "https://github.com/yymir/virtual-oslo"
+     },
+     "author": "yymir",
+     "authorUrl": "https://github.com/yymir",
+     "desc": "Virtual Oslo: real terrain from the fjord to Ekeberg, tram lines and 23,000 mapped trees.",
+     "flags": [
+      "source only"
+     ],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "seville",
+   "city": "Seville",
+   "country": "Spain",
+   "region": "Europe",
+   "lat": 37.3891,
+   "lon": -5.9845,
+   "original": false,
+   "entries": [
+    {
+     "title": "Seville, Spain",
+     "links": {
+      "play": "https://rnachoc.github.io/sevilla-sim/",
+      "source": "https://github.com/rnachoc/sevilla-sim"
+     },
+     "author": "rnachoc",
+     "authorUrl": "https://github.com/rnachoc",
+     "desc": "Sevilla Sim: old town and Triana with IGN orthophotos, Sevici bikes and horse carriages.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "terrassa",
+   "city": "Terrassa",
+   "country": "Spain",
+   "region": "Europe",
+   "lat": 41.5632,
+   "lon": 2.0089,
+   "original": false,
+   "entries": [
+    {
+     "title": "Terrassa, Spain",
+     "links": {
+      "source": "https://github.com/oegea/slop-egara"
+     },
+     "author": "oegea",
+     "authorUrl": "https://github.com/oegea",
+     "desc": "Grand Theft Ègara: Terrassa at 1:1 with real relief.",
+     "flags": [
+      "source only"
+     ],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "utrecht",
+   "city": "Utrecht",
+   "country": "Netherlands",
+   "region": "Europe",
+   "lat": 52.0907,
+   "lon": 5.1214,
+   "original": false,
+   "entries": [
+    {
+     "title": "Utrecht, Netherlands",
+     "links": {
+      "play": "https://bertt.github.io/slop-utrecht/",
+      "source": "https://github.com/bertt/slop-utrecht"
+     },
+     "author": "bertt",
+     "authorUrl": "https://github.com/bertt",
+     "desc": "Domtoren, Oudegracht and Centraal Station.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "warsaw",
+   "city": "Warsaw",
+   "country": "Poland",
+   "region": "Europe",
+   "lat": 52.2297,
+   "lon": 21.0122,
+   "original": false,
+   "entries": [
+    {
+     "title": "Warsaw, Poland",
+     "links": {
+      "play": "https://tinywarsaw.app/",
+      "tweet": "https://x.com/OrestesGaolin/status/2114423799382679687"
+     },
+     "author": "@OrestesGaolin",
+     "authorUrl": "https://x.com/OrestesGaolin",
+     "desc": "Tiny Warsaw.",
+     "flags": [],
+     "screenshot": "screenshots/warsaw.jpg",
+     "tag": null
+    },
+    {
+     "title": "Warsaw, Poland (Isometric Warsaw)",
+     "links": {
+      "play": "https://bedirhanyildirim.com/warsaw-izo/",
+      "tweet": "https://x.com/bedcodes/status/2113176644479229953"
+     },
+     "author": "@bedcodes",
+     "authorUrl": "https://x.com/bedcodes",
+     "desc": "The whole city as an isometric pixel-art map from OSM and GUGiK data, with real sun, seasons and Vistula levels, and trams and trains running to their timetables.",
+     "flags": [],
+     "screenshot": null,
+     "tag": "Isometric Warsaw"
+    },
+    {
+     "title": "Warsaw, Poland (Szczęśliwe Bielany)",
+     "links": {
+      "source": "https://github.com/keymaker2005/szczesliwe-bielany"
+     },
+     "author": "keymaker2005",
+     "authorUrl": "https://github.com/keymaker2005",
+     "desc": "Bielany along the M1 metro line (Stare Bielany, Wawrzyszew, Młociny) on a golden-autumn day.",
+     "flags": [
+      "source only"
+     ],
+     "screenshot": null,
+     "tag": "Szczęśliwe Bielany"
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "ciudad-obregon",
+   "city": "Ciudad Obregón",
+   "country": "Mexico",
+   "region": "North America",
+   "lat": 27.4828,
+   "lon": -109.9304,
+   "original": false,
+   "entries": [
+    {
+     "title": "Ciudad Obregón, Mexico",
+     "links": {
+      "source": "https://github.com/JuanittoSantana/SlopSonora"
+     },
+     "author": "JuanittoSantana",
+     "authorUrl": "https://github.com/JuanittoSantana",
+     "desc": "Ciudad Obregón, Sonora; open obregon.html.",
+     "flags": [
+      "source only"
+     ],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "san-francisco",
+   "city": "San Francisco",
+   "country": "USA",
+   "region": "North America",
+   "lat": 37.7749,
+   "lon": -122.4194,
+   "original": false,
+   "entries": [
+    {
+     "title": "San Francisco, USA",
+     "links": {
+      "play": "https://unable12.github.io/slop-sanfrancisco/",
+      "source": "https://github.com/unable12/slop-sanfrancisco",
+      "tweet": "https://x.com/unable0_/status/2113784642406842438"
+     },
+     "author": "@unable0_",
+     "authorUrl": "https://x.com/unable0_",
+     "desc": "Waymo rides, helicopters, real hills and marine fog.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    },
+    {
+     "title": "San Francisco, USA (Sweep SF)",
+     "links": {
+      "play": "https://sweepsf.nicolas.dev/"
+     },
+     "author": null,
+     "authorUrl": null,
+     "desc": "",
+     "flags": [],
+     "screenshot": null,
+     "tag": "Sweep SF"
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "tepic",
+   "city": "Tepic",
+   "country": "Mexico",
+   "region": "North America",
+   "lat": 21.5042,
+   "lon": -104.8946,
+   "original": false,
+   "entries": [
+    {
+     "title": "Tepic, Mexico",
+     "links": {
+      "source": "https://github.com/the-self/slop-tepic"
+     },
+     "author": "the-self",
+     "authorUrl": "https://github.com/the-self",
+     "desc": "Tepic and Xalisco, Nayarit, on real valley terrain.",
+     "flags": [
+      "source only"
+     ],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "toronto",
+   "city": "Toronto",
+   "country": "Canada",
+   "region": "North America",
+   "lat": 43.6532,
+   "lon": -79.3832,
+   "original": false,
+   "entries": [
+    {
+     "title": "Toronto, Canada",
+     "links": {
+      "play": "https://slop-toronto.cloud6711.workers.dev/explore",
+      "source": "https://github.com/johnfewell/slop-toronto",
+      "tweet": "https://x.com/johnfewell/status/2114053187946545313"
+     },
+     "author": "@johnfewell",
+     "authorUrl": "https://x.com/johnfewell",
+     "desc": "Downtown and the waterfront.",
+     "flags": [],
+     "screenshot": "screenshots/toronto.jpg",
+     "tag": null
+    },
+    {
+     "title": "Toronto, Canada (aalghooneh)",
+     "links": {
+      "play": "https://aalghooneh.github.io/slop-toronto/",
+      "source": "https://github.com/aalghooneh/slop-toronto"
+     },
+     "author": null,
+     "authorUrl": null,
+     "desc": "",
+     "flags": [],
+     "screenshot": null,
+     "tag": "aalghooneh"
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "uruapan",
+   "city": "Uruapan",
+   "country": "Mexico",
+   "region": "North America",
+   "lat": 19.4167,
+   "lon": -102.0633,
+   "original": false,
+   "entries": [
+    {
+     "title": "Uruapan, Mexico",
+     "links": {
+      "play": "https://riantorres1975.github.io/slop-uruapan/",
+      "source": "https://github.com/riantorres1975/slop-uruapan"
+     },
+     "author": "riantorres1975",
+     "authorUrl": "https://github.com/riantorres1975",
+     "desc": "Uruapan, Michoacán, from OpenStreetMap.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "buenos-aires",
+   "city": "Buenos Aires",
+   "country": "Argentina",
+   "region": "South America",
+   "lat": -34.6037,
+   "lon": -58.3816,
+   "original": false,
+   "entries": [
+    {
+     "title": "Buenos Aires, Argentina",
+     "links": {
+      "play": "https://msantelli.github.io/slop-buenosaires/",
+      "tweet": "https://x.com/mesantelli/status/2114805565813936618"
+     },
+     "author": "@mesantelli",
+     "authorUrl": "https://x.com/mesantelli",
+     "desc": "\"Buenos Aires berreta\": the whole city and part of the conurbano.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  }
+ ]
+}
