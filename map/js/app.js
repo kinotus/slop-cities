@@ -168,9 +168,10 @@ function setMode(mode) {
 for (const b of document.querySelectorAll('.modes button')) b.addEventListener('click', () => setMode(b.dataset.mode));
 
 function currentOpts() {
-  return { arcs: $('#opt-arcs').checked, labels: $('#opt-labels').checked, clouds: $('#opt-clouds').checked };
+  return { arcs: $('#opt-arcs').checked, labels: $('#opt-labels').checked, clouds: $('#opt-clouds').checked, ocean: $('#opt-ocean').checked };
 }
-for (const id of ['opt-arcs', 'opt-labels', 'opt-clouds']) $('#' + id).addEventListener('change', () => { map.setOptions(currentOpts()); globe?.setOptions(currentOpts()); });
+map.setOptions(currentOpts());
+for (const id of ['opt-arcs', 'opt-labels', 'opt-clouds', 'opt-ocean']) $('#' + id).addEventListener('change', () => { map.setOptions(currentOpts()); globe?.setOptions(currentOpts()); });
 $('#opt-link').addEventListener('change', (e) => { if (e.target.checked) globe?.setView(map.getView()); });
 
 for (const z of document.querySelectorAll('.zoom button')) z.addEventListener('click', () => {

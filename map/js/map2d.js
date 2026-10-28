@@ -64,8 +64,9 @@ function buildTerrain(world) {
     const ndl = (nx * LIGHT[0] + ny * LIGHT[1] + nz * LIGHT[2]) / nl;
     // Print look: soft relief shading, no per-facet jitter, muted inks.
     const depth = -(Math.min(0, hs[0]) + Math.min(0, hs[1]) + Math.min(0, hs[2])) / 3;
-    const rgb = printInk(land ? shade(color, ndl, 0.93) : color, land, depth, cLat);
-    const key = (rgb[0] << 16) | (rgb[1] << 8) | rgb[2];
+    // Flat: land is coloured by biome and height only, with no relief shading.
+    const rgb = printInk(color, land, depth, cLat);
+    const key = (land ? 'l' : 's') + ((rgb[0] << 16) | (rgb[1] << 8) | rgb[2]);
     let d = groups.get(key);
     if (!d) groups.set(key, (d = []));
     d.push(`M${(ax * S).toFixed(1)} ${(-ay * S).toFixed(1)}L${(bx * S).toFixed(1)} ${(-by * S).toFixed(1)}L${(cx * S).toFixed(1)} ${(-cy * S).toFixed(1)}Z`);
@@ -86,26 +87,30 @@ export function createMap2D(container, world, bus) {
   el('path', { d: outlineD }, clip);
   const glow = el('filter', { id: 'map-glow', x: '-10%', y: '-10%', width: '120%', height: '120%' }, defs);
   el('feGaussianBlur', { stdDeviation: '6' }, glow);
-  el('path', { d: outlineD, class: 'outline-glow', filter: 'url(#map-glow)' }, terrainSvg);
+  el('path', { d: outlineD, class: 'outline-glow sea-only', filter: 'url(#map-glow)' }, terrainSvg);
   const tg = el('g', { 'clip-path': 'url(#map-outline)', class: 'facets' }, terrainSvg);
+  const seaG = el('g', { class: 'sea' }, tg);
+  const landG = el('g', { class: 'land' }, tg);
   const t0 = performance.now();
   const { groups, facets } = buildTerrain(world);
   const frag = document.createDocumentFragment();
+  const seaFrag = document.createDocumentFragment();
   for (const [key, d] of groups) {
-    const col = '#' + key.toString(16).padStart(6, '0');
+    const col = '#' + Number(key.slice(1)).toString(16).padStart(6, '0');
     const p = document.createElementNS(NS, 'path');
     p.setAttribute('d', d.join(''));
     p.setAttribute('fill', col);
     p.setAttribute('stroke', col);
-    frag.appendChild(p);
+    (key[0] === 's' ? seaFrag : frag).appendChild(p);
   }
-  tg.appendChild(frag);
+  landG.appendChild(frag);
+  seaG.appendChild(seaFrag);
   // Graticule every 30°, faint, over everything.
   let grat = '';
   for (let lon = -150; lon <= 150; lon += 30) { grat += 'M' + Array.from({ length: 37 }, (_, i) => project(lon, -90 + i * 5).map((v) => (v * S).toFixed(1)).join(' ')).join('L'); }
   for (let lat = -60; lat <= 60; lat += 30) { grat += 'M' + Array.from({ length: 73 }, (_, i) => project(-180 + i * 5, lat).map((v) => (v * S).toFixed(1)).join(' ')).join('L'); }
-  el('path', { d: grat, class: 'graticule', 'clip-path': 'url(#map-outline)' }, terrainSvg);
-  el('path', { d: outlineD, class: 'outline' }, terrainSvg);
+  el('path', { d: grat, class: 'graticule sea-only', 'clip-path': 'url(#map-outline)' }, terrainSvg);
+  el('path', { d: outlineD, class: 'outline sea-only' }, terrainSvg);
   const stats = { facets, colours: groups.size, buildMs: Math.round(performance.now() - t0) };
 
   // ---- overlay: arcs, pins, labels ----
@@ -153,7 +158,7 @@ export function createMap2D(container, world, bus) {
   let committed = { ...view };
   let fit = 1;
   let selected = null, hovered = null;
-  const opts = { arcs: true, labels: true };
+  const opts = { arcs: false, labels: true, ocean: false };
 
   const k = () => fit * view.z; // pixels per SVG unit
   function clampView() {
@@ -383,7 +388,12 @@ export function createMap2D(container, world, bus) {
     drawOverlay();
   }
   function setHovered(id) { hovered = id; drawOverlay(); }
-  function setOptions(o) { Object.assign(opts, o); drawOverlay(); }
+  function setOptions(o) {
+    Object.assign(opts, o);
+    container.classList.toggle('no-ocean', !opts.ocean);
+    drawOverlay();
+  }
+  container.classList.add('no-ocean');
   function zoomBy(f) { animateZoomAt(W / 2, H / 2, f); }
   function reset() { flyTo(0, 0, 1); }
 

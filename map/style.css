@@ -43,6 +43,7 @@ button { font: inherit; color: inherit; }
 .tour[aria-pressed="true"] { background: var(--gold); color: var(--bg); border-color: var(--gold); }
 body:not(.mode-3d):not(.mode-compare) .only-3d { display: none; }
 body:not(.mode-compare) .only-compare { display: none; }
+.mode-3d .only-2d { display: none; }
 
 /* ---------- side panel ---------- */
 .panel {
@@ -117,6 +118,7 @@ body:not(.mode-compare) .only-compare { display: none; }
 .map2d .outline-glow { fill: #000; opacity: 0.35; }
 .map2d .graticule { fill: none; stroke: rgba(80, 70, 50, 0.16); stroke-width: 0.7px; vector-effect: non-scaling-stroke; }
 .map2d .overlay { overflow: visible; }
+.map2d.no-ocean .sea, .map2d.no-ocean .sea-only { display: none; }
 .arc { fill: none; stroke: #c4682c; stroke-linecap: round; opacity: 0.75; transition: opacity 0.25s; }
 .arc.remix { stroke: #b0457e; }
 .arc.dim { opacity: 0.12; }

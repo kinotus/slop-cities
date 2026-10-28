@@ -247,7 +247,7 @@ export async function createGlobe3D(container, world, bus) {
 
   // ---- state ----
   let selected = null, hovered = null, relatives = new Set();
-  const opts = { arcs: true, labels: true, spin: true, clouds: true };
+  const opts = { arcs: false, labels: true, spin: true, clouds: true };
   let W = 1, H = 1;
 
   function resize() {
