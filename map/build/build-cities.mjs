@@ -28,6 +28,8 @@ const COORDS = {
   Copenhagen: [55.6761, 12.5683],
   'Donostia / San Sebastián': [43.3183, -1.9812],
   Kahramanmaraş: [37.5753, 36.9228],
+  Nairobi: [-1.2864, 36.8172],
+  'Zürich': [47.3769, 8.5417],
   Kazan: [55.7963, 49.1088],
   London: [51.5072, -0.1276],
   Madrid: [40.4168, -3.7038],

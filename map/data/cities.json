@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28",
+ "generated": "2026-10-29",
  "places": [
   {
    "id": "new-york",
@@ -72,6 +72,18 @@
      "author": "Denzy7",
      "authorUrl": "https://github.com/Denzy7",
      "desc": "Performance rewrite for weak GPUs and browsers without WebGPU.",
+     "flags": [],
+     "screenshot": null
+    },
+    {
+     "title": "NYC Spin-off: EUC Thrills",
+     "links": {
+      "play": "https://vibezzzcoder.github.io/euc-nyc/",
+      "source": "https://github.com/VibezZzCoder/euc-nyc"
+     },
+     "author": "VibezZzCoder",
+     "authorUrl": "https://github.com/VibezZzCoder",
+     "desc": "Ride an electric unicycle through Manhattan with EUC Thrills riding physics while dodging a paddle-wielding cop.",
      "flags": [],
      "screenshot": null
     },
@@ -157,7 +169,7 @@
      },
      "author": "@0xkodesage",
      "authorUrl": "https://x.com/0xkodesage",
-     "desc": "Nigeria's capital: 37,373 buildings, Aso Rock at full height, place search and turn-by-turn directions.",
+     "desc": "Nigeria's capital: 37,373 buildings, Aso Rock at full height, place search and turn-by-turn directions. Take a green FCT taxi to the National Mosque.",
      "flags": [],
      "screenshot": "screenshots/abuja.jpg",
      "tag": null
@@ -186,6 +198,35 @@
      "author": "Akay-mighty",
      "authorUrl": "https://github.com/Akay-mighty",
      "desc": "Kaduna Need for Speed: a Cybertruck around a low-poly Kaduna circuit, borrowing Slop New York's car physics and chase camera.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "nairobi",
+   "city": "Nairobi",
+   "country": "Kenya",
+   "region": "Africa",
+   "lat": -1.2864,
+   "lon": 36.8172,
+   "original": false,
+   "entries": [
+    {
+     "title": "Nairobi, Kenya",
+     "links": {
+      "play": "https://briankariuki.github.io/slop-nairobi/",
+      "source": "https://github.com/briankariuki/slop-nairobi",
+      "tweet": "https://x.com/briankariuki/status/2115157292685635881"
+     },
+     "author": "@briankariuki",
+     "authorUrl": "https://x.com/briankariuki",
+     "desc": "Kenya's capital.",
      "flags": [],
      "screenshot": null,
      "tag": null
@@ -635,7 +676,7 @@
      },
      "author": "@Nelson_christof",
      "authorUrl": "https://x.com/Nelson_christof",
-     "desc": "London Loop: a GTA-style 1:1 Zone 1. Drive a bus and work shifts.",
+     "desc": "London Loop: a GTA-style 1:1 Zone 1. Drive a double-decker on a real route and timetable, picking up passengers.",
      "flags": [],
      "screenshot": "screenshots/london.jpg",
      "tag": null
@@ -803,8 +844,8 @@
       "play": "https://bertt.github.io/slop-utrecht/",
       "source": "https://github.com/bertt/slop-utrecht"
      },
-     "author": "bertt",
-     "authorUrl": "https://github.com/bertt",
+     "author": "@berttemme",
+     "authorUrl": "https://x.com/berttemme",
      "desc": "Domtoren, Oudegracht and Centraal Station.",
      "flags": [],
      "screenshot": null,
@@ -833,7 +874,7 @@
      },
      "author": "@OrestesGaolin",
      "authorUrl": "https://x.com/OrestesGaolin",
-     "desc": "Tiny Warsaw.",
+     "desc": "Tiny Warsaw: browse, ride and fly through a low-poly central Warsaw with the Palace of Culture.",
      "flags": [],
      "screenshot": "screenshots/warsaw.jpg",
      "tag": null
@@ -864,6 +905,34 @@
      ],
      "screenshot": null,
      "tag": "Szczęśliwe Bielany"
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "zurich",
+   "city": "Zürich",
+   "country": "Switzerland",
+   "region": "Europe",
+   "lat": 47.3769,
+   "lon": 8.5417,
+   "original": false,
+   "entries": [
+    {
+     "title": "Zürich, Switzerland",
+     "links": {
+      "play": "https://zurich.pocketswitzerland.ch",
+      "source": "https://github.com/colorfield/slop-zurich"
+     },
+     "author": "colorfield",
+     "authorUrl": "https://github.com/colorfield",
+     "desc": "Slop Zürich: the inner city at 1:1 on its real relief from swisstopo buildings and terrain, with trams, on foot, by bike, cargo bike, car or helicopter.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
     }
    ],
    "remixes": [],
@@ -988,7 +1057,7 @@
      },
      "author": "@johnfewell",
      "authorUrl": "https://x.com/johnfewell",
-     "desc": "Downtown and the waterfront.",
+     "desc": "Downtown and the waterfront at golden hour.",
      "flags": [],
      "screenshot": "screenshots/toronto.jpg",
      "tag": null
@@ -1057,9 +1126,9 @@
      },
      "author": "@mesantelli",
      "authorUrl": "https://x.com/mesantelli",
-     "desc": "\"Buenos Aires berreta\": the whole city and part of the conurbano.",
+     "desc": "\"Buenos Aires berreta\": the whole city and part of the conurbano, with black-and-yellow taxis.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/buenosaires.jpg",
      "tag": null
     }
    ],
