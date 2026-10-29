@@ -96,6 +96,16 @@ cities:
             desc: Kid-friendly third-person street game on Nathan Road, Yau Tsim Mong.
             flags: [own engine]
 
+      - city: Niseko
+        country: Japan
+        coords: [42.8636, 140.6875]
+        takes:
+          - play: https://dash122.github.io/ski_map/
+            source: https://github.com/dash122/ski_map
+            by: dash122
+            desc: "Slop Niseko: snowboard the real terrain of Mt. Niseko Annupuri, Hokkaido, and ride the real lifts and gondolas back up. Inspired by Slop New York; more resorts behind ?resort= (Rusutsu, Teine, Appi and others)."
+            flags: [own engine]
+
       - city: Riyadh
         country: Saudi Arabia
         coords: [24.7136, 46.6753]
@@ -486,11 +496,6 @@ other:
       tweet: https://x.com/Mor1ight/status/2114195154802446493
       by: "@Mor1ight"
       desc: Kaiju-attack themed three.js game.
-    - name: Slop Niseko
-      play: https://dash122.github.io/ski_map/
-      source: https://github.com/dash122/ski_map
-      by: dash122
-      desc: Snowboard the real terrain of Mt. Niseko Annupuri, Hokkaido, and ride the real lifts and gondolas back up.
     - name: StreetRacer
       play: https://streetracer.app/
       tweet: https://x.com/zan_sheum/status/2113703904198164493

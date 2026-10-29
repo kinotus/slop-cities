@@ -464,6 +464,35 @@
    ]
   },
   {
+   "id": "niseko",
+   "city": "Niseko",
+   "country": "Japan",
+   "region": "Asia",
+   "lat": 42.8636,
+   "lon": 140.6875,
+   "original": false,
+   "entries": [
+    {
+     "title": "Niseko, Japan",
+     "links": {
+      "play": "https://dash122.github.io/ski_map/",
+      "source": "https://github.com/dash122/ski_map"
+     },
+     "author": "dash122",
+     "authorUrl": "https://github.com/dash122",
+     "desc": "Slop Niseko: snowboard the real terrain of Mt. Niseko Annupuri, Hokkaido, and ride the real lifts and gondolas back up. Inspired by Slop New York; more resorts behind ?resort= (Rusutsu, Teine, Appi and others).",
+     "flags": [
+      "own engine"
+     ],
+     "screenshot": null,
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": []
+  },
+  {
    "id": "riyadh",
    "city": "Riyadh",
    "country": "Saudi Arabia",
