@@ -95,6 +95,16 @@ function renderChips() {
   }).join('');
 }
 renderChips();
+// The filter chips fold away behind a toggle; the choice is kept between visits.
+function setChipsOpen(open) {
+  $('#chips').classList.toggle('collapsed', !open);
+  $('#chips-toggle').setAttribute('aria-expanded', String(open));
+  try { localStorage.setItem('slop-cities.filters', open ? 'open' : 'closed'); } catch {}
+}
+let chipsStored = null;
+try { chipsStored = localStorage.getItem('slop-cities.filters'); } catch {}
+setChipsOpen(chipsStored !== 'closed');
+$('#chips-toggle').addEventListener('click', () => setChipsOpen($('#chips').classList.contains('collapsed')));
 $('#chips').addEventListener('click', (e) => {
   const b = e.target.closest('[data-tag]');
   if (!b) return;

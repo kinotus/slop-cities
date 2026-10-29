@@ -178,12 +178,23 @@ kbd {
 .search input { flex: 1; min-width: 0; height: 100%; background: none; border: 0; outline: none; color: var(--text); font: inherit; font-size: 13.5px; }
 .search input::placeholder { color: var(--text-3); }
 .search input::-webkit-search-cancel-button { filter: invert(1) opacity(0.5); }
-.chips { display: flex; flex-wrap: wrap; gap: 5px; padding: 2px 10px 8px; }
+.chips-toggle {
+  display: inline-flex; align-self: flex-start; align-items: center; gap: 3px; margin: 0 10px 4px; padding: 2px 6px; border-radius: 6px;
+  font-size: 10.5px; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.chips-toggle:hover { background: var(--hover); color: var(--text-2); }
+.chips-toggle .chev { width: 12px; height: 12px; transition: transform 0.2s ease; }
+.chips-toggle[aria-expanded="false"] .chev { transform: rotate(-90deg); }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; padding: 0 10px 8px; }
+/* Collapsed: only the filter in use stays, so it can still be seen and cleared. */
+.chips.collapsed .chip:not(.on) { display: none; }
+.chips.collapsed:not(:has(.chip.on)) { display: none; }
 .chip {
-  height: 26px; padding: 0 9px; border-radius: 8px; font-size: 12px; font-weight: 600; color: var(--text-2);
+  height: 22px; padding: 0 7px; border-radius: 6px; font-size: 11px; font-weight: 600; color: var(--text-2);
   background: rgba(255, 255, 255, 0.06); transition: background-color 0.15s ease, color 0.15s ease;
 }
-.chip span { margin-left: 3px; font-size: 10.5px; color: var(--text-3); font-variant-numeric: tabular-nums; }
+.chip span { margin-left: 2px; font-size: 9.5px; color: var(--text-3); font-variant-numeric: tabular-nums; }
 .chip:hover { background: var(--hover); color: var(--text); }
 .chip.on { background: var(--taxi); color: var(--taxi-ink); }
 .chip.on span { color: rgba(23, 20, 10, 0.6); }
