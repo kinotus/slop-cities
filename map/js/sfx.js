@@ -23,6 +23,19 @@ export function createSfx() {
     for (let i = 0; i < len; i++) { b = 0.97 * b + 0.03 * (Math.random() * 2 - 1); d[i] = b * 6; }
   }
 
+  // The loudness over the flight: a smooth bell that swells to its top a little
+  // before halfway, where the camera is fastest, and eases out as it lands, so
+  // the sound is heard all the way through and not only at its peak.
+  function bell(top) {
+    const n = 64, c = new Float32Array(n);
+    for (let i = 0; i < n; i++) {
+      const u = i / (n - 1);
+      const w = u < 0.45 ? u / 0.45 : (1 - u) / 0.55; // 0 -> 1 -> 0
+      c[i] = top * w * w * (3 - 2 * w); // smoothstep on each side
+    }
+    return c;
+  }
+
   // ms: how long the flight lasts; amount: 0 to 1, how far it goes; pan: -1 west to 1 east.
   function swoosh({ ms = 1200, amount = 0.6, pan = 0 } = {}) {
     if (!ctx) build();
@@ -31,7 +44,7 @@ export function createSfx() {
     const dur = Math.max(0.35, ms / 1000);
     const peak = t + dur * 0.45; // the camera is fastest a little before halfway
     const end = t + dur;
-    const a = Math.max(0.15, Math.min(1, amount));
+    const a = Math.max(0.3, Math.min(1, amount));
 
     const layer = (type, lo, hi, q, vol) => {
       const s = ctx.createBufferSource();
@@ -44,9 +57,7 @@ export function createSfx() {
       f.frequency.exponentialRampToValueAtTime(lo + (hi - lo) * a, peak);
       f.frequency.exponentialRampToValueAtTime(lo * 0.8, end);
       const g = ctx.createGain();
-      g.gain.setValueAtTime(0.0001, t);
-      g.gain.exponentialRampToValueAtTime(vol * a, peak);
-      g.gain.exponentialRampToValueAtTime(0.0001, end + 0.15);
+      g.gain.setValueCurveAtTime(bell(vol * a), t, dur + 0.15);
       const p = ctx.createStereoPanner();
       p.pan.setValueAtTime(-0.6 * pan, t);
       p.pan.linearRampToValueAtTime(0.6 * pan, end);
@@ -54,8 +65,8 @@ export function createSfx() {
       s.start(t, Math.random());
       s.stop(end + 0.3);
     };
-    layer('bandpass', 350, 2600, 1.4, 0.22); // the swoosh
-    layer('lowpass', 120, 500, 0.7, 0.3); // the rush of air under it
+    layer('bandpass', 450, 2800, 1.2, 0.34); // the swoosh
+    layer('lowpass', 140, 600, 0.7, 0.38); // the rush of air under it
   }
 
   return { swoosh };

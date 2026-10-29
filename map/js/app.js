@@ -320,7 +320,10 @@ function swooshTo(p, source, ms) {
   const v = state.mode === '2d' ? map.getView() : globe ? globe.getView() : map.getView();
   const km = distanceKm(v.lon, v.lat, p.lon, p.lat);
   const dLon = ((p.lon - v.lon + 540) % 360) - 180;
-  sfx.swoosh({ ms, amount: 0.25 + km / 12000, pan: Math.sign(dLon) * Math.min(1, Math.abs(dLon) / 90) });
+  // An S-curve on the distance: even a hop next door is clearly heard, it
+  // grows fastest over mid-range flights and levels off for the long ones.
+  const x = Math.min(1, km / 10000);
+  sfx.swoosh({ ms, amount: 0.6 + 0.4 * x * x * (3 - 2 * x), pan: Math.sign(dLon) * Math.min(1, Math.abs(dLon) / 90) });
 }
 
 // ---------- music ----------

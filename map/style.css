@@ -408,11 +408,14 @@ kbd {
   .card .shot img { aspect-ratio: 3 / 1; }
 }
 
-/* Music button: three bars that bounce while it plays. */
-.tool-btn .eq { display: inline-flex; align-items: flex-end; gap: 2px; height: 10px; margin-left: 4px; vertical-align: -1px; }
-.tool-btn .eq i { width: 2px; height: 3px; border-radius: 1px; background: currentColor; opacity: 0.6; }
-#music[aria-pressed="true"] .eq i { opacity: 1; animation: eq 0.9s ease-in-out infinite alternate; }
-#music[aria-pressed="true"] .eq i:nth-child(2) { animation-delay: -0.3s; }
-#music[aria-pressed="true"] .eq i:nth-child(3) { animation-delay: -0.6s; }
-@keyframes eq { from { height: 3px; } to { height: 10px; } }
-@media (prefers-reduced-motion: reduce) { #music[aria-pressed="true"] .eq i { animation: none; height: 7px; } }
+/* Music button: a note while off, four bouncing bars while it plays. */
+.tool-btn.icon-only { width: 36px; padding: 0; justify-content: center; }
+#music .eq { display: none; align-items: flex-end; gap: 2px; height: 14px; }
+#music .eq i { width: 2.5px; height: 4px; border-radius: 1px; background: currentColor; animation: eq 0.9s ease-in-out infinite alternate; }
+#music .eq i:nth-child(2) { animation-delay: -0.35s; }
+#music .eq i:nth-child(3) { animation-delay: -0.7s; }
+#music .eq i:nth-child(4) { animation-delay: -0.15s; }
+#music[aria-pressed="true"] .note { display: none; }
+#music[aria-pressed="true"] .eq { display: inline-flex; }
+@keyframes eq { from { height: 4px; } to { height: 14px; } }
+@media (prefers-reduced-motion: reduce) { #music .eq i { animation: none; height: 9px; } #music .eq i:nth-child(odd) { height: 6px; } }
