@@ -212,7 +212,7 @@
     {
      "title": "Valdrada",
      "links": {
-      "play": "http://mehmetkeremturkcan.com/valdrada/",
+      "play": "https://huggingface.co/spaces/mehmetkeremturkcan/valdrada",
       "source": "https://github.com/mkturkcan/valdrada",
       "tweet": "https://x.com/mkturkcan/status/2108946258081743097"
      },
@@ -340,6 +340,34 @@
    ]
   },
   {
+   "id": "daejeon",
+   "city": "Daejeon",
+   "country": "South Korea",
+   "region": "Asia",
+   "lat": 36.3504,
+   "lon": 127.3845,
+   "original": false,
+   "entries": [
+    {
+     "title": "Daejeon, South Korea",
+     "links": {
+      "play": "https://abirdcity.com/city/daejeon?lang=en",
+      "tweet": "https://x.com/ggybbo220913/status/2115066376440455466"
+     },
+     "author": "@ggybbo220913",
+     "authorUrl": "https://x.com/ggybbo220913",
+     "desc": "abirdcity: the whole city from OpenStreetMap in PlayCanvas. Drive a Roadster up a skyscraper wall, fly a pteranodon over Hanbit Tower, or jump to Daejeon in the year 2300.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
    "id": "dubai",
    "city": "Dubai",
    "country": "UAE",
@@ -427,6 +455,33 @@
      "author": "Aymn74",
      "authorUrl": "https://github.com/Aymn74",
      "desc": "Riyadh 360: 3D city explorer and virtual tours from OpenStreetMap.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "seoul",
+   "city": "Seoul",
+   "country": "South Korea",
+   "region": "Asia",
+   "lat": 37.5665,
+   "lon": 126.978,
+   "original": false,
+   "entries": [
+    {
+     "title": "Seoul, South Korea",
+     "links": {
+      "play": "https://hypeseoul.xyz/"
+     },
+     "author": "bitjaru",
+     "authorUrl": "https://github.com/bitjaru",
+     "desc": "HypeSeoul: all of Seoul (603 km²) as one isometric painting, repainted tile by tile by a fine-tuned image model from a three.js render of OSM and building-register data. A three.js layer on top runs day and night on Seoul time, and subway Lines 1–3 and Gyeongui–Jungang follow the city's live train-position feed (a few minutes behind).",
      "flags": [],
      "screenshot": null,
      "tag": null
@@ -739,6 +794,18 @@
      "flags": [],
      "screenshot": "screenshots/london.jpg",
      "tag": null
+    },
+    {
+     "title": "London, UK (tiny.london)",
+     "links": {
+      "play": "https://tiny.london/"
+     },
+     "author": "@ktoya_me",
+     "authorUrl": "https://x.com/ktoya_me",
+     "desc": "All of Greater London as one isometric pixel-art map, about 14 billion pixels: zoom from the whole city to single streets, and search any place, station or postcode.",
+     "flags": [],
+     "screenshot": null,
+     "tag": "tiny.london"
     }
    ],
    "remixes": [],
@@ -1216,6 +1283,36 @@
      "desc": "\"Buenos Aires berreta\": the whole city and part of the conurbano, with black-and-yellow taxis.",
      "flags": [],
      "screenshot": "screenshots/buenosaires.jpg",
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "goiania",
+   "city": "Goiânia",
+   "country": "Brazil",
+   "region": "South America",
+   "lat": -16.6869,
+   "lon": -49.2648,
+   "original": false,
+   "entries": [
+    {
+     "title": "Goiânia, Brazil",
+     "links": {
+      "play": "https://tinygyn.com/",
+      "tweet": "https://x.com/xthomasms/status/2113641952931377428"
+     },
+     "author": "@xthomasms",
+     "authorUrl": "https://x.com/xthomasms",
+     "desc": "tinygyn: Goiânia, Goiás, redrawn frame by frame as an isometric pixel-art map from the city's 3D model, inspired by isometric.nyc and tiny.london.",
+     "flags": [
+      "WIP"
+     ],
+     "screenshot": null,
      "tag": null
     }
    ],

@@ -107,6 +107,7 @@ Entries marked *(source only)* have no live demo yet; clone and serve locally.
 - **Kahramanmaraş, Türkiye** - [Play](https://mhmmd5225.github.io/SLOPMARAS/) · [Source](https://github.com/mhmmd5225/SLOPMARAS) - by [mhmmd5225](https://github.com/mhmmd5225). SLOPMARAS: 40,000+ buildings, the castle and Ulu Camii, navigation and self-driving taxis. Adapted from Slop New York and Slop Singapore.
 - **Kazan, Russia** - [Play](https://kazan.adelnz.com/) · [Source](https://github.com/meoyawn/slop-kazan) - by [meoyawn](https://github.com/meoyawn). Kazan and surroundings, Tatarstan.
 - **London, UK** - [Play](https://nelsonchris1.github.io/london-loop/) · [Source](https://github.com/nelsonchris1/london-loop) · [Tweet](https://x.com/Nelson_christof/status/2113986000112296170) - by [@Nelson_christof](https://x.com/Nelson_christof). London Loop: a GTA-style 1:1 Zone 1. Drive a double-decker on a real route and timetable, picking up passengers.
+- **London, UK (tiny.london)** - [Play](https://tiny.london/) - by [@ktoya_me](https://x.com/ktoya_me). All of Greater London as one isometric pixel-art map, about 14 billion pixels: zoom from the whole city to single streets, and search any place, station or postcode.
 - **Madrid, Spain** - [Play](https://germanpadua.github.io/slop-madrid/) · [Source](https://github.com/germanpadua/slop-madrid) - by [germanpadua](https://github.com/germanpadua).
 - **Montreux, Switzerland** - [Play](https://montreux-drift.pages.dev/) · [Tweet](https://x.com/bchapuis/status/2114778049204129827) - by [@bchapuis](https://x.com/bchapuis). Montreux Drift, with real relief down to Lake Geneva.
 - **Oslo, Norway** - [Source](https://github.com/yymir/virtual-oslo) - by [yymir](https://github.com/yymir). Virtual Oslo: real terrain from the fjord to Ekeberg, tram lines and 23,000 mapped trees. *(source only)*
@@ -132,6 +133,7 @@ Entries marked *(source only)* have no live demo yet; clone and serve locally.
 ### South America
 
 - **Buenos Aires, Argentina** - [Play](https://msantelli.github.io/slop-buenosaires/) · [Tweet](https://x.com/mesantelli/status/2114805565813936618) - by [@mesantelli](https://x.com/mesantelli). "Buenos Aires berreta": the whole city and part of the conurbano, with black-and-yellow taxis.
+- **Goiânia, Brazil** - [Play](https://tinygyn.com/) · [Tweet](https://x.com/xthomasms/status/2113641952931377428) - by [@xthomasms](https://x.com/xthomasms). tinygyn: Goiânia, Goiás, redrawn frame by frame as an isometric pixel-art map from the city's 3D model, inspired by isometric.nyc and tiny.london. *(WIP)*
 
 ## New York remixes
 
@@ -160,8 +162,9 @@ Projects in the same vein: city maps, three.js games, driving and racing.
 - **Elderwake** - [Play](https://elderwake-kaiju.vercel.app/) · [Tweet](https://x.com/Mor1ight/status/2114195154802446493) - by [@Mor1ight](https://x.com/Mor1ight). Kaiju-attack themed three.js game.
 - **Slop Niseko** - [Play](https://dash122.github.io/ski_map/) · [Source](https://github.com/dash122/ski_map) - by [dash122](https://github.com/dash122). Snowboard the real terrain of Mt. Niseko Annupuri, Hokkaido, and ride the real lifts and gondolas back up.
 - **StreetRacer** - [Play](https://streetracer.app/) · [Tweet](https://x.com/zan_sheum/status/2113703904198164493) - by [@zan_sheum](https://x.com/zan_sheum).
+- **Isometric NYC** - [Play](http://isometric.nyc) - by [@_coenen](https://x.com/_coenen). Manhattan as an isometric pixel-art map; the map that started tiny.london, tinygyn and the other pixel-art cities. Not built on Slop.
 - **Road Thruster** - [Play](https://roadthruster.versezero.com/). Tesla rocket.
-- **Valdrada** - [Play](http://mehmetkeremturkcan.com/valdrada/) · [Source](https://github.com/mkturkcan/valdrada) · [Tweet](https://x.com/mkturkcan/status/2108946258081743097) - by [@mkturkcan](https://x.com/mkturkcan). A real-time New York digital twin from public records, with Unreal Engine 5 and three.js renderers, lane-level traffic and pedestrians, and a CARLA-style API for simulation and synthetic data. Predates Slop New York.
+- **Valdrada** - [Play](https://huggingface.co/spaces/mehmetkeremturkcan/valdrada) · [Source](https://github.com/mkturkcan/valdrada) · [Tweet](https://x.com/mkturkcan/status/2108946258081743097) - by [@mkturkcan](https://x.com/mkturkcan). A real-time New York digital twin from public records, with Unreal Engine 5 and three.js renderers, lane-level traffic and pedestrians, and a CARLA-style API for simulation and synthetic data. Predates Slop New York.
 - **Zero to Gone** - [Play](https://zero-to-gone.vercel.app/) · [Tweet](https://x.com/AugustCastilIo/status/2114423589340377206) - by [@AugustCastilIo](https://x.com/AugustCastilIo). Roadster game with crushable cars.
 - **Eastside Drift** - [Play](https://eastside-drift.vercel.app/). *(unverified)*
 - **Teleoperator** - [Play](https://teleoperator.mindblown.ai/?car=roadster). *(unverified)*
