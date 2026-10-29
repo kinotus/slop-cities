@@ -1,0 +1,515 @@
+# The data behind the Awesome Slop Cities list and its world map.
+# Edit this file, then run   node map/build/build.mjs
+# which rewrites the lists in README.md and map/data/cities.json. See CONTRIBUTING.md.
+
+# The original: New York, which every other city descends from.
+original:
+  city: New York
+  country: USA
+  region: North America
+  coords: [40.758, -73.9855]
+  takes:
+    - play: https://mrdoob.github.io/slop-newyork/
+      source: https://github.com/mrdoob/slop-newyork
+      tweet: https://x.com/mrdoob/status/2113177383658561721
+      by: "@mrdoob"
+      desc: Manhattan on foot, car, bicycle or helicopter.
+      screenshot: screenshots/newyork.jpg
+
+# Cities by region; the build lists them alphabetically, and each city's takes in the order given.
+cities:
+  intro: Entries marked *(source only)* have no live demo yet; clone and serve locally. *(own engine)* means the city is built on its own code rather than on Slop New York's (some of them are inspired by it), and *(isometric)* marks isometric pixel-art and painted maps.
+  regions:
+    Africa:
+      - city: Abuja
+        country: Nigeria
+        coords: [9.0579, 7.4951]
+        takes:
+          - play: https://abujatour.site/
+            tweet: https://x.com/0xkodesage/status/2113449044206920085
+            by: "@0xkodesage"
+            desc: "Nigeria's capital: 37,373 buildings, Aso Rock at full height, place search and turn-by-turn directions. Take a green FCT taxi to the National Mosque."
+            screenshot: screenshots/abuja.jpg
+
+      - city: Kaduna
+        country: Nigeria
+        coords: [10.5105, 7.4165]
+        takes:
+          - play: https://kaduna-need-for-speed.vercel.app
+            source: https://github.com/Akay-mighty/Kaduna-need-for-speed-
+            by: Akay-mighty
+            desc: "Kaduna Need for Speed: a Cybertruck around a low-poly Kaduna circuit, borrowing Slop New York's car physics and chase camera."
+            flags: [own engine]
+
+      - city: Nairobi
+        country: Kenya
+        coords: [-1.2864, 36.8172]
+        takes:
+          - play: https://briankariuki.github.io/slop-nairobi/
+            source: https://github.com/briankariuki/slop-nairobi
+            tweet: https://x.com/briankariuki/status/2115157292685635881
+            by: "@briankariuki"
+            desc: Kenya's capital.
+
+    Asia:
+      - city: Bangkok
+        country: Thailand
+        coords: [13.7367, 100.5608]
+        takes:
+          - source: https://github.com/olivalcf/slop-bangkok
+            by: olivalcf
+            desc: A stylized Bangkok around Sukhumvit, with meter taxis.
+            flags: [source only]
+
+      - city: Daejeon
+        country: South Korea
+        coords: [36.3504, 127.3845]
+        takes:
+          - play: https://abirdcity.com/city/daejeon?lang=en
+            tweet: https://x.com/ggybbo220913/status/2115066376440455466
+            by: "@ggybbo220913"
+            desc: "abirdcity: the whole city from OpenStreetMap in PlayCanvas. Drive a Roadster up a skyscraper wall, fly a pteranodon over Hanbit Tower, or jump to Daejeon in the year 2300."
+            flags: [own engine]
+
+      - city: Dubai
+        country: UAE
+        coords: [25.1972, 55.2744]
+        takes:
+          - play: https://slop-dubai-kfmedia.netlify.app/
+            tweet: https://x.com/kayf2010/status/2114050750074548626
+            by: "@kayf2010"
+            desc: "Slop Dubai: jump to Burj Khalifa, Museum of the Future, Dubai Frame, Burj Al Arab, Palm Jumeirah and Dubai Marina."
+
+      - city: Hong Kong
+        coords: [22.2988, 114.1722]
+        takes:
+          - source: https://github.com/keithligh/slop-hongkong
+            by: keithligh
+            desc: Hong Kong Island and Kowloon from LandsD buildings and OSM.
+            flags: [source only]
+          - tag: Night Patrol
+            play: https://hkpolice.9chives.com/
+            source: https://github.com/linxichen/sdu-night-patrol
+            by: linxichen
+            desc: Kid-friendly third-person street game on Nathan Road, Yau Tsim Mong.
+            flags: [own engine]
+
+      - city: Riyadh
+        country: Saudi Arabia
+        coords: [24.7136, 46.6753]
+        takes:
+          - play: https://aymn74.github.io/riyadh-360/
+            source: https://github.com/Aymn74/riyadh-360
+            by: Aymn74
+            desc: "Riyadh 360: 3D city explorer and virtual tours from OpenStreetMap."
+            flags: [own engine]
+
+      - city: Seoul
+        country: South Korea
+        coords: [37.5665, 126.978]
+        takes:
+          - play: https://hypeseoul.xyz/
+            by: bitjaru
+            desc: "HypeSeoul: all of Seoul (603 km²) as one isometric painting, repainted tile by tile by a fine-tuned image model from a three.js render of OSM and building-register data. A three.js layer on top runs day and night on Seoul time, and subway Lines 1–3 and Gyeongui–Jungang follow the city's live train-position feed (a few minutes behind)."
+            flags: [isometric, own engine]
+
+      - city: Shanghai
+        country: China
+        coords: [31.2397, 121.4998]
+        takes:
+          - play: https://shanghai.datiaomao.com/
+            source: https://github.com/YakirLove/ShangHai
+            by: YakirLove
+            desc: "Shanghai Roam: the Huangpu, the Bund and Lujiazui."
+
+      - city: Singapore
+        coords: [1.2834, 103.8607]
+        takes:
+          - play: https://zz85.github.io/slop-singapore/
+            source: https://github.com/zz85/slop-singapore
+            tweet: https://x.com/BlurSpline/status/2114222434425745531
+            by: "@BlurSpline"
+            desc: Singapore landmarks, an accurate tree database, tropical thunderstorms, haze, navigation and self-driving.
+            screenshot: screenshots/singapore.jpg
+
+      - city: Taipei
+        country: Taiwan
+        coords: [25.0375, 121.5637]
+        takes:
+          - play: https://shwang1979.github.io/slop-taipei/
+            source: https://github.com/shwang1979/slop-taipei
+            by: shwang1979
+            desc: "Slop 台北: Wanhua and Ximending to Xinyi and Taipei 101, by taxi, scooter or helicopter."
+          - tag: hebe13579
+            play: https://hebe13579.github.io/slop-taipei/?city=taipei
+            source: https://github.com/hebe13579/slop-taipei
+            by: hebe13579
+            desc: Taipei Basin with rivers and bridges.
+          - tag: sc0Vu
+            play: https://sc0vu.github.io/slop-taipei/
+            source: https://github.com/sc0Vu/slop-taipei
+            by: sc0Vu
+
+    Europe:
+      - city: Barcelona
+        country: Spain
+        coords: [41.3874, 2.1686]
+        takes:
+          - play: https://biko8.github.io/slop-barcelona/
+            source: https://github.com/biko8/slop-barcelona
+            by: biko8
+            desc: Cerdà's Eixample with its chamfered blocks and inner courtyards, Ciutat Vella, Gràcia and Sants.
+
+      - city: Berlin
+        country: Germany
+        coords: [52.5163, 13.3777]
+        takes:
+          - play: https://www.aaronjcunningham.com/play/berlin
+            tweet: https://x.com/Aaron_1337/status/2113969912158847343
+            by: "@Aaron_1337"
+            desc: Berlin's street map, and pedestrians who scream and jump out of the way of bad driving.
+            screenshot: screenshots/berlin.jpg
+
+      - city: Copenhagen
+        country: Denmark
+        coords: [55.6761, 12.5683]
+        takes:
+          - play: https://martincollignon.github.io/copenhagen-twin/
+            source: https://github.com/martincollignon/copenhagen-twin
+            by: martincollignon
+            desc: A city twin with real building data and Skråfoto facade textures.
+
+      - city: Donostia / San Sebastián
+        country: Spain
+        coords: [43.3183, -1.9812]
+        takes:
+          - play: https://ginocingolani.github.io/slop-donostia/
+            source: https://github.com/ginocingolani/slop-donostia
+            by: ginocingolani
+
+      - city: Kahramanmaraş
+        country: Türkiye
+        coords: [37.5753, 36.9228]
+        remix_of: [singapore]
+        takes:
+          - play: https://mhmmd5225.github.io/SLOPMARAS/
+            source: https://github.com/mhmmd5225/SLOPMARAS
+            by: mhmmd5225
+            desc: "SLOPMARAS: 40,000+ buildings, the castle and Ulu Camii, navigation and self-driving taxis. Adapted from Slop New York and Slop Singapore."
+
+      - city: Kazan
+        country: Russia
+        coords: [55.7963, 49.1088]
+        takes:
+          - play: https://kazan.adelnz.com/
+            source: https://github.com/meoyawn/slop-kazan
+            by: meoyawn
+            desc: Kazan and surroundings, Tatarstan.
+
+      - city: London
+        country: UK
+        coords: [51.5072, -0.1276]
+        takes:
+          - play: https://nelsonchris1.github.io/london-loop/
+            source: https://github.com/nelsonchris1/london-loop
+            tweet: https://x.com/Nelson_christof/status/2113986000112296170
+            by: "@Nelson_christof"
+            desc: "London Loop: a GTA-style 1:1 Zone 1. Drive a double-decker on a real route and timetable, picking up passengers."
+            screenshot: screenshots/london.jpg
+          - tag: tiny.london
+            play: https://tiny.london/
+            by: "@ktoya_me"
+            desc: "All of Greater London as one isometric pixel-art map, about 14 billion pixels: zoom from the whole city to single streets, and search any place, station or postcode."
+            flags: [isometric, own engine]
+
+      - city: Madrid
+        country: Spain
+        coords: [40.4168, -3.7038]
+        takes:
+          - play: https://germanpadua.github.io/slop-madrid/
+            source: https://github.com/germanpadua/slop-madrid
+            by: germanpadua
+
+      - city: Montreux
+        country: Switzerland
+        coords: [46.4312, 6.9107]
+        takes:
+          - play: https://montreux-drift.pages.dev/
+            tweet: https://x.com/bchapuis/status/2114778049204129827
+            by: "@bchapuis"
+            desc: Montreux Drift, with real relief down to Lake Geneva.
+
+      - city: Oslo
+        country: Norway
+        coords: [59.9139, 10.7522]
+        takes:
+          - source: https://github.com/yymir/virtual-oslo
+            by: yymir
+            desc: "Virtual Oslo: real terrain from the fjord to Ekeberg, tram lines and 23,000 mapped trees."
+            flags: [source only]
+
+      - city: Seville
+        country: Spain
+        coords: [37.3891, -5.9845]
+        takes:
+          - play: https://rnachoc.github.io/sevilla-sim/
+            source: https://github.com/rnachoc/sevilla-sim
+            by: rnachoc
+            desc: "Sevilla Sim: old town and Triana with IGN orthophotos, Sevici bikes and horse carriages."
+            flags: [own engine]
+
+      - city: Terrassa
+        country: Spain
+        coords: [41.5632, 2.0089]
+        takes:
+          - source: https://github.com/oegea/slop-egara
+            by: oegea
+            desc: "Grand Theft Ègara: Terrassa at 1:1 with real relief."
+            flags: [source only]
+
+      - city: Utrecht
+        country: Netherlands
+        coords: [52.0907, 5.1214]
+        takes:
+          - play: https://bertt.github.io/slop-utrecht/
+            source: https://github.com/bertt/slop-utrecht
+            by: "@berttemme"
+            desc: Domtoren, Oudegracht and Centraal Station.
+
+      - city: Warsaw
+        country: Poland
+        coords: [52.2297, 21.0122]
+        takes:
+          - play: https://tinywarsaw.app/
+            tweet: https://x.com/OrestesGaolin/status/2114423799382679687
+            by: "@OrestesGaolin"
+            desc: "Tiny Warsaw: browse, ride and fly through a low-poly central Warsaw with the Palace of Culture."
+            screenshot: screenshots/warsaw.jpg
+          - tag: Isometric Warsaw
+            play: https://bedirhanyildirim.com/warsaw-izo/
+            tweet: https://x.com/bedcodes/status/2113176644479229953
+            by: "@bedcodes"
+            desc: The whole city as an isometric pixel-art map from OSM and GUGiK data, with real sun, seasons and Vistula levels, and trams and trains running to their timetables.
+            flags: [isometric, own engine]
+          - tag: Szczęśliwe Bielany
+            source: https://github.com/keymaker2005/szczesliwe-bielany
+            by: keymaker2005
+            desc: Bielany along the M1 metro line (Stare Bielany, Wawrzyszew, Młociny) on a golden-autumn day.
+            flags: [source only]
+
+      - city: Zürich
+        country: Switzerland
+        coords: [47.3769, 8.5417]
+        takes:
+          - play: https://zurich.pocketswitzerland.ch
+            source: https://github.com/colorfield/slop-zurich
+            by: colorfield
+            desc: "Slop Zürich: the inner city at 1:1 on its real relief from swisstopo buildings and terrain, with trams, on foot, by bike, cargo bike, car or helicopter."
+
+    North America:
+      - city: Ciudad Obregón
+        country: Mexico
+        coords: [27.4828, -109.9304]
+        takes:
+          - source: https://github.com/JuanittoSantana/SlopSonora
+            by: JuanittoSantana
+            desc: Ciudad Obregón, Sonora; open `obregon.html`.
+            flags: [source only]
+
+      - city: San Francisco
+        country: USA
+        coords: [37.7749, -122.4194]
+        takes:
+          - play: https://unable12.github.io/slop-sanfrancisco/
+            source: https://github.com/unable12/slop-sanfrancisco
+            tweet: https://x.com/unable0_/status/2113784642406842438
+            by: "@unable0_"
+            desc: Waymo rides, helicopters, real hills and marine fog.
+          - tag: Sweep SF
+            play: https://sweepsf.nicolas.dev/
+
+      - city: Seattle
+        country: USA
+        coords: [47.6062, -122.3321]
+        takes:
+          - play: https://treycausey.github.io/slop-seattle/
+            source: https://github.com/treycausey/slop-seattle
+            by: treycausey
+            desc: "Slop Seattle: downtown, Seattle Center, Pioneer Square, South Lake Union and SoDo from 4,490 OSM buildings, with the Space Needle, Pike Place Market, the Great Wheel and Elliott Bay ferries."
+
+      - city: Tepic
+        country: Mexico
+        coords: [21.5042, -104.8946]
+        takes:
+          - source: https://github.com/the-self/slop-tepic
+            by: the-self
+            desc: Tepic and Xalisco, Nayarit, on real valley terrain.
+            flags: [source only]
+
+      - city: Toronto
+        country: Canada
+        coords: [43.6532, -79.3832]
+        takes:
+          - play: https://slop-toronto.cloud6711.workers.dev/explore
+            source: https://github.com/johnfewell/slop-toronto
+            tweet: https://x.com/johnfewell/status/2114053187946545313
+            by: "@johnfewell"
+            desc: Downtown and the waterfront at golden hour.
+            screenshot: screenshots/toronto.jpg
+          - tag: aalghooneh
+            play: https://aalghooneh.github.io/slop-toronto/
+            source: https://github.com/aalghooneh/slop-toronto
+
+      - city: Uruapan
+        country: Mexico
+        coords: [19.4167, -102.0633]
+        takes:
+          - play: https://riantorres1975.github.io/slop-uruapan/
+            source: https://github.com/riantorres1975/slop-uruapan
+            by: riantorres1975
+            desc: Uruapan, Michoacán, from OpenStreetMap.
+
+    South America:
+      - city: Buenos Aires
+        country: Argentina
+        coords: [-34.6037, -58.3816]
+        takes:
+          - play: https://msantelli.github.io/slop-buenosaires/
+            tweet: https://x.com/mesantelli/status/2114805565813936618
+            by: "@mesantelli"
+            desc: "\"Buenos Aires berreta\": the whole city and part of the conurbano, with black-and-yellow taxis."
+            screenshot: screenshots/buenosaires.jpg
+
+      - city: Goiânia
+        country: Brazil
+        coords: [-16.6869, -49.2648]
+        takes:
+          - play: https://tinygyn.com/
+            tweet: https://x.com/xthomasms/status/2113641952931377428
+            by: "@xthomasms"
+            desc: "tinygyn: Goiânia, Goiás, redrawn frame by frame as an isometric pixel-art map from the city's 3D model, inspired by isometric.nyc and tiny.london."
+            flags: [isometric, own engine, WIP]
+
+# New York remixes: same Manhattan, new game, platform or engine. Shown on New York's card on the map.
+remixes:
+  intro: Same Manhattan, new game, platform or engine.
+  entries:
+    - name: City Life Simulator
+      source: https://github.com/desurfofficial-ship-it/slop-newyork
+      by: desurfofficial-ship-it
+      desc: Subway, money, apartments, jobs and New Yorkers on top of the original.
+      flags: [source only]
+    - name: Extinction Avenue
+      play: https://midagedev.github.io/extinction-avenue/
+      source: https://github.com/midagedev/extinction-avenue
+      by: midagedev
+      desc: Arcade dino-outbreak car shooter in Midtown.
+    - name: Flying Car Simulator
+      play: https://flyingcarsimulator.io
+      tweet: https://x.com/josephzhangai/status/2114743491196850426
+      by: "@josephzhangai"
+      desc: Fly a Roadster over 1:1 Manhattan with live traffic.
+    - name: "GEN Z QUANT: Unfinished Business"
+      play: https://genzquant.com/
+      source: https://github.com/ceogenz/gen-z-quant
+      by: ceogenz
+      desc: "Open-world mission game: drive a rocket-boosted supercar through Manhattan, fight the Degens and get the dog Moon home."
+    - name: Handbrake drift
+      source: https://github.com/tiborsaas/slop-newyork
+      by: tiborsaas
+      desc: Adds a handbrake to the car, with rear-wheel drift.
+      flags: [source only]
+    - name: LLM residents
+      source: https://github.com/trippuroskie/slop-newyork
+      by: trippuroskie
+      desc: Eight Midtown residents with hunger, work and social needs, whose hourly plans come from one batched LLM call. Needs a local Node server.
+      flags: [source only]
+    - name: Low-end GPU fork
+      play: https://denzy7.github.io/slop-newyork/
+      source: https://github.com/Denzy7/slop-newyork
+      by: Denzy7
+      desc: Performance rewrite for weak GPUs and browsers without WebGPU.
+    - name: Make it anywhere
+      play: https://makeitanywhere.xyz
+      by: "@mattiadmr"
+      desc: A live Times Square where you can take over a billboard screen with your own ad (paid, from 1 EUR). Built on the phone mode from Slop New York Mini.
+    - name: "NYC Spin-off: EUC Thrills"
+      play: https://vibezzzcoder.github.io/euc-nyc/
+      source: https://github.com/VibezZzCoder/euc-nyc
+      by: VibezZzCoder
+      desc: Ride an electric unicycle through Manhattan with EUC Thrills riding physics while dodging a paddle-wielding cop.
+    - name: Pocket New York
+      source: https://github.com/pocket-nexus/pocket-newyork
+      tweet: https://x.com/pocket_js/status/2113974954131882181
+      by: "@pocket_js"
+      desc: Slop New York compiled with Pocket3D to run on a PS Vita.
+      flags: [WIP]
+    - name: Real terrain
+      play: https://pablo-mayrgundter.github.io/slop-newyork/?ground=terrain
+      source: https://github.com/pablo-mayrgundter/slop-newyork
+      by: pablo-mayrgundter
+      desc: Drives the city over Manhattan's real ground.
+    - name: Slop New York Mini
+      play: https://mattiaongit.github.io/slop-newyork-mini/
+      source: https://github.com/mattiaongit/slop-newyork-mini
+      by: mattiaongit
+      desc: "Runs on an iPhone: Midtown at 60 fps. Desktop gets the original; `?phone` forces phone mode."
+    - name: Spider-Man · Slop New York
+      play: https://jnaranj09.github.io/claude-spiderman-game/
+      source: https://github.com/jnaranj09/claude-spiderman-game
+      by: jnaranj09
+      desc: Web-swing through Manhattan on your phone with a one-thumb swinging controller.
+    - name: Taxi fares
+      play: https://mrubens.github.io/new-york/
+      source: https://github.com/mrubens/new-york
+      by: mrubens
+      desc: Drive taxi fares against the clock.
+    - name: Unity port
+      source: https://github.com/jdlp2442/port-slop-newyork
+      by: jdlp2442
+      desc: "1:1 port to Unity 6 / URP 17."
+
+# Other maps, games and racing. card: new-york also shows an entry on New York's card on the map.
+other:
+  intro: "Projects in the same vein: city maps, three.js games, driving and racing."
+  entries:
+    - name: Elderwake
+      play: https://elderwake-kaiju.vercel.app/
+      tweet: https://x.com/Mor1ight/status/2114195154802446493
+      by: "@Mor1ight"
+      desc: Kaiju-attack themed three.js game.
+    - name: Slop Niseko
+      play: https://dash122.github.io/ski_map/
+      source: https://github.com/dash122/ski_map
+      by: dash122
+      desc: Snowboard the real terrain of Mt. Niseko Annupuri, Hokkaido, and ride the real lifts and gondolas back up.
+    - name: StreetRacer
+      play: https://streetracer.app/
+      tweet: https://x.com/zan_sheum/status/2113703904198164493
+      by: "@zan_sheum"
+    - name: Isometric NYC
+      play: http://isometric.nyc
+      by: "@_coenen"
+      desc: Manhattan as an isometric pixel-art map; the map that started tiny.london, tinygyn and the other pixel-art cities. Not built on Slop.
+      flags: [isometric, own engine]
+    - name: Road Thruster
+      play: https://roadthruster.versezero.com/
+      desc: Tesla rocket.
+    - name: Valdrada
+      play: https://huggingface.co/spaces/mehmetkeremturkcan/valdrada
+      source: https://github.com/mkturkcan/valdrada
+      tweet: https://x.com/mkturkcan/status/2108946258081743097
+      by: "@mkturkcan"
+      desc: A real-time New York digital twin from public records, with Unreal Engine 5 and three.js renderers, lane-level traffic and pedestrians, and a CARLA-style API for simulation and synthetic data. Predates Slop New York.
+      card: new-york
+    - name: Zero to Gone
+      play: https://zero-to-gone.vercel.app/
+      tweet: https://x.com/AugustCastilIo/status/2114423589340377206
+      by: "@AugustCastilIo"
+      desc: Roadster game with crushable cars.
+    - name: Eastside Drift
+      play: https://eastside-drift.vercel.app/
+      flags: [unverified]
+    - name: Teleoperator
+      play: https://teleoperator.mindblown.ai/?car=roadster
+      flags: [unverified]

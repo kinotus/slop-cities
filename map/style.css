@@ -235,6 +235,8 @@ kbd {
 .list .none { padding: 10px; color: var(--text-3); }
 .foot { padding: 9px 16px 11px; font-size: 11px; color: var(--text-3); border-top: 1px solid var(--divider); }
 .foot a { color: var(--text-2); }
+.foot .add-city { display: inline-block; margin-bottom: 4px; font-size: 12px; font-weight: 600; color: var(--taxi); text-decoration: none; }
+.foot .add-city:hover { text-decoration: underline; }
 
 /* ---------- Views ---------- */
 .views { position: fixed; inset: 0; display: grid; z-index: 1; }

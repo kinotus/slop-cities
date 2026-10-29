@@ -55,6 +55,8 @@ A curated list of **slop cities**: browser city simulations in the spirit of [mr
 
 ## Contents
 
+<!-- cities.yml:contents (generated from cities.yml by map/build/build.mjs: edit cities.yml, not this list) -->
+
 - [Awesome Slop Cities](#awesome-slop-cities)
   - [Featured](#featured)
   - [Contents](#contents)
@@ -68,6 +70,10 @@ A curated list of **slop cities**: browser city simulations in the spirit of [mr
   - [New York remixes](#new-york-remixes)
   - [Other maps, games and racing](#other-maps-games-and-racing)
   - [Contributing](#contributing)
+
+<!-- /cities.yml:contents -->
+
+<!-- cities.yml:lists (generated from cities.yml by map/build/build.mjs: edit cities.yml, not this list) -->
 
 ## The original
 
@@ -168,6 +174,8 @@ Projects in the same vein: city maps, three.js games, driving and racing.
 - **Zero to Gone** - [Play](https://zero-to-gone.vercel.app/) · [Tweet](https://x.com/AugustCastilIo/status/2114423589340377206) - by [@AugustCastilIo](https://x.com/AugustCastilIo). Roadster game with crushable cars.
 - **Eastside Drift** - [Play](https://eastside-drift.vercel.app/). *(unverified)*
 - **Teleoperator** - [Play](https://teleoperator.mindblown.ai/?car=roadster). *(unverified)*
+
+<!-- /cities.yml:lists -->
 
 ## Contributing
 

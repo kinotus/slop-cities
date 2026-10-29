@@ -7,11 +7,11 @@ Both views use the same ~10k points on the sphere, the same heights and the same
 ## Rebuilding the data
 
 ```sh
-node map/build/build-cities.mjs   # README.md -> map/data/cities.json (fails if a city has no coordinates)
+node map/build/build.mjs          # cities.yml -> README.md lists + map/data/cities.json (--check: report only)
 node map/build/build-grid.mjs     # terrain + coastlines -> map/data/elev.bin.gz
 ```
 
-Add coordinates for a new city to `COORDS` in `build/build-cities.mjs`. Terrain comes from the [AWS Terrain Tiles](https://registry.opendata.aws/terrain-tiles/) (zoom 3) and land/lakes from [Natural Earth](https://www.naturalearthdata.com/) 50m; both are downloaded into `build/.cache/`.
+Every entry, with its coordinates, is in [`cities.yml`](../cities.yml) at the repo root; see [CONTRIBUTING.md](../CONTRIBUTING.md). The YAML parser is vendored in `build/vendor/` (js-yaml 4.1.0, MIT), so the build needs no npm install. Terrain comes from the [AWS Terrain Tiles](https://registry.opendata.aws/terrain-tiles/) (zoom 3) and land/lakes from [Natural Earth](https://www.naturalearthdata.com/) 50m; both are downloaded into `build/.cache/`.
 
 Keys: `1` `2` `3` switch Globe / Map / Compare, `/` searches, `M` turns the music on or off, `Esc` clears the selection.
 
