@@ -209,7 +209,8 @@ cities:
                   source: https://github.com/kinotus/slop-helsinki
                   by: kinotus
                   desc: Slop Helsinki has urban information model buildings with textures as 3DTiles and Cesium terrain.
-			            remix_of: [Utrecht]
+			      remix_of: [Utrecht]
+				  screenshot: screenshots/helsinki.png
                   
       - city: Kahramanmaraş
         country: Türkiye
