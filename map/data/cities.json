@@ -64,6 +64,31 @@
      "screenshot": null
     },
     {
+     "title": "GEN Z QUANT: Unfinished Business",
+     "links": {
+      "play": "https://genzquant.com/",
+      "source": "https://github.com/ceogenz/gen-z-quant"
+     },
+     "author": "ceogenz",
+     "authorUrl": "https://github.com/ceogenz",
+     "desc": "Open-world mission game: drive a rocket-boosted supercar through Manhattan, fight the Degens and get the dog Moon home.",
+     "flags": [],
+     "screenshot": null
+    },
+    {
+     "title": "LLM residents",
+     "links": {
+      "source": "https://github.com/trippuroskie/slop-newyork"
+     },
+     "author": "trippuroskie",
+     "authorUrl": "https://github.com/trippuroskie",
+     "desc": "Eight Midtown residents with hunger, work and social needs, whose hourly plans come from one batched LLM call. Needs a local Node server.",
+     "flags": [
+      "source only"
+     ],
+     "screenshot": null
+    },
+    {
      "title": "Low-end GPU fork",
      "links": {
       "play": "https://denzy7.github.io/slop-newyork/",
@@ -110,6 +135,30 @@
      "author": "pablo-mayrgundter",
      "authorUrl": "https://github.com/pablo-mayrgundter",
      "desc": "Drives the city over Manhattan's real ground.",
+     "flags": [],
+     "screenshot": null
+    },
+    {
+     "title": "Slop New York Mini",
+     "links": {
+      "play": "https://mattiaongit.github.io/slop-newyork-mini/",
+      "source": "https://github.com/mattiaongit/slop-newyork-mini"
+     },
+     "author": "mattiaongit",
+     "authorUrl": "https://github.com/mattiaongit",
+     "desc": "Runs on an iPhone: Midtown at 60 fps. Desktop gets the original; ?phone forces phone mode.",
+     "flags": [],
+     "screenshot": null
+    },
+    {
+     "title": "Spider-Man · Slop New York",
+     "links": {
+      "play": "https://jnaranj09.github.io/claude-spiderman-game/",
+      "source": "https://github.com/jnaranj09/claude-spiderman-game"
+     },
+     "author": "jnaranj09",
+     "authorUrl": "https://github.com/jnaranj09",
+     "desc": "Web-swing through Manhattan on your phone with a one-thumb swinging controller.",
      "flags": [],
      "screenshot": null
     },
@@ -316,20 +365,6 @@
      ],
      "screenshot": null,
      "tag": null
-    },
-    {
-     "title": "Hong Kong (swankchan)",
-     "links": {
-      "source": "https://github.com/swankchan/slop-hongkong"
-     },
-     "author": "swankchan",
-     "authorUrl": "https://github.com/swankchan",
-     "desc": "Central to Mong Kok on both sides of Victoria Harbour, with left-hand traffic.",
-     "flags": [
-      "source only, WIP"
-     ],
-     "screenshot": null,
-     "tag": "swankchan"
     },
     {
      "title": "Hong Kong (Night Patrol)",
@@ -1003,6 +1038,34 @@
      "flags": [],
      "screenshot": null,
      "tag": "Sweep SF"
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "seattle",
+   "city": "Seattle",
+   "country": "USA",
+   "region": "North America",
+   "lat": 47.6062,
+   "lon": -122.3321,
+   "original": false,
+   "entries": [
+    {
+     "title": "Seattle, USA",
+     "links": {
+      "play": "https://treycausey.github.io/slop-seattle/",
+      "source": "https://github.com/treycausey/slop-seattle"
+     },
+     "author": "treycausey",
+     "authorUrl": "https://github.com/treycausey",
+     "desc": "Slop Seattle: downtown, Seattle Center, Pioneer Square, South Lake Union and SoDo from 4,490 OSM buildings, with the Space Needle, Pike Place Market, the Great Wheel and Elliott Bay ferries.",
+     "flags": [],
+     "screenshot": null,
+     "tag": null
     }
    ],
    "remixes": [],
