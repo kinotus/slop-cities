@@ -251,5 +251,28 @@ export function createMusic() {
     setTimeout(() => { if (!playing) ctx.suspend(); }, 1400);
   }
 
-  return { start, stop, toggle: () => (playing ? stop() : start()), get playing() { return playing; } };
+  // Whether the browser lets sound start now, before any click or key. Desktop
+  // Chrome and Edge do on a site you've played sound on before; Firefox can be
+  // set to; Safari and every iPhone wait for a tap.
+  function mayAutoplay() {
+    if (navigator.getAutoplayPolicy) return navigator.getAutoplayPolicy('audiocontext') === 'allowed';
+    if (!ctx) build();
+    return ctx.state === 'running';
+  }
+
+  // Ask the browser for sound from inside a click or tap, and call back once it
+  // is granted. iOS grants it on some events (touchend, click) and not others
+  // (pointerdown), so the caller asks on each one until this fires.
+  function unlock(onRunning) {
+    if (!ctx) build();
+    if (ctx.state === 'running') { onRunning(); return; }
+    ctx.addEventListener('statechange', function once() {
+      if (ctx.state !== 'running') return;
+      ctx.removeEventListener('statechange', once);
+      onRunning();
+    });
+    ctx.resume();
+  }
+
+  return { start, stop, mayAutoplay, unlock, toggle: () => (playing ? stop() : start()), get playing() { return playing; } };
 }

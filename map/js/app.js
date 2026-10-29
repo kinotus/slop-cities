@@ -331,13 +331,33 @@ function swooshTo(p, source, ms) {
 }
 
 // ---------- music ----------
-// Off until asked for: browsers only let sound start from a click or a key.
+// On unless you turned it off last time. It starts at once where the browser
+// allows sound without a click, and otherwise on your first click, tap or key
+// anywhere on the page (always the case on an iPhone).
 const music = createMusic();
+const musicWanted = () => { try { return localStorage.getItem('slop-cities.music') !== 'off'; } catch { return true; } };
+const showMusic = () => $('#music').setAttribute('aria-pressed', String(music.playing));
+async function startMusic() { await music.start(); showMusic(); }
 async function toggleMusic() {
+  disarmMusic();
   await music.toggle();
-  $('#music').setAttribute('aria-pressed', String(music.playing));
+  showMusic();
+  try { localStorage.setItem('slop-cities.music', music.playing ? 'on' : 'off'); } catch {}
 }
 $('#music').addEventListener('click', toggleMusic);
+let unlocking = false;
+function onFirstGesture(e) {
+  // The music button and the M key toggle it themselves.
+  if (e.target.closest?.('#music') || (e.type === 'keydown' && (e.key === 'm' || e.key === 'M'))) return;
+  if (!unlocking) { unlocking = true; music.unlock(() => { disarmMusic(); if (musicWanted() && !music.playing) startMusic(); }); }
+  else music.unlock(() => {});
+}
+const GESTURES = ['pointerdown', 'pointerup', 'click', 'touchend', 'keydown'];
+function disarmMusic() { for (const t of GESTURES) removeEventListener(t, onFirstGesture, true); }
+if (musicWanted()) {
+  if (music.mayAutoplay()) startMusic();
+  else for (const t of GESTURES) addEventListener(t, onFirstGesture, true);
+}
 
 // ---------- keyboard, panel, hash ----------
 document.addEventListener('keydown', (e) => {
