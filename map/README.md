@@ -1,6 +1,6 @@
 # Slop Cities world map
 
-Every city in the [list](../README.md) on a low-poly world map, as a three.js globe (the default view), a flat map (SVG; Patterson by default, Equal Earth in Layers), or both side by side (**Compare**, with the two views linked). Pins open a card with every take on that city; the lineage arcs run from Slop New York (and from Slop Singapore to Kahramanmaraş, which says it adapts both).
+Every city in the [list](../README.md) on a low-poly world map, as a three.js globe (the default view), a flat map (SVG; Patterson by default, Equal Earth in Layers), or both side by side (**Compare**, with the two views linked). Pins open a card with every take on that city; the lineage arcs run from Slop New York to every city built on its code (cities marked *(own engine)* get none; and from Slop Singapore to Kahramanmaraş, which says it adapts both).
 
 Both views use the same ~10k points on the sphere, the same heights and the same facet colours, so the facets match between the flat map and the globe.
 

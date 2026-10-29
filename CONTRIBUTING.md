@@ -14,3 +14,4 @@ PRs welcome. To add an entry:
 
 4. Strip tracking params like `?s=20` from tweet links.
 5. Link only to things that load. Mark anything you couldn't check as *(unverified)*.
+6. Flags go at the end of the line in one group, e.g. *(isometric, own engine, WIP)*. Use *(own engine)* when the city isn't built on Slop New York's code (the world map draws no arc to it from New York) and *(isometric)* for isometric pixel-art or painted maps. Every flag becomes a filter on the map.

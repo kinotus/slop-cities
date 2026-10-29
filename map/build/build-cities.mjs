@@ -128,10 +128,13 @@ const ny = places.get('New York');
 ny.remixes = remixes;
 
 const out = [...places.values()];
-// Lineage drawn as arcs: every city descends from New York; a README line
+// Lineage drawn as arcs: every city descends from New York, unless it runs on its own engine; a README line
 // that says "Adapted from ... Slop Singapore" adds that city as a parent too.
 for (const p of out) {
-  p.parents = p.original ? [] : ['new-york'];
+  // A city whose every take is marked *(own engine)* isn't built on Slop New
+  // York's code, so it gets no arc from New York.
+  const ownEngine = p.entries.every((e) => e.flags.some((f) => /own engine/i.test(f)));
+  p.parents = p.original || ownEngine ? [] : ['new-york'];
   for (const e of p.entries) {
     const m = e.desc.match(/Adapted from ([^.]+)/i);
     if (!m) continue;

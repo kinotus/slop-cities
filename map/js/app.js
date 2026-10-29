@@ -149,8 +149,11 @@ function renderCard() {
   const card = $('#card');
   if (!p) { card.hidden = true; return; }
   const parents = p.parents.map((id) => byId.get(id));
+  const km = `${Math.round(distanceKm(ny.lon, ny.lat, p.lon, p.lat)).toLocaleString()} km from New York`;
   const lineage = p.original
-    ? `The original. ${places.length - 1} cities and ${ny.remixes.length} remixes descend from it.`
+    ? `The original. ${places.filter((q) => q.parents.includes('new-york')).length} cities and ${ny.remixes.length} remixes descend from it.`
+    : !parents.length
+    ? `Built on its own engine, not on Slop New York's code · ${km}`
     : `Remixed from ${parents.map((q) => `<a href="#" data-id="${q.id}">Slop ${esc(q.city)}</a>`).join(' and ')} · ${Math.round(distanceKm(ny.lon, ny.lat, p.lon, p.lat)).toLocaleString()} km from New York`;
   const children = places.filter((q) => q.parents.includes(p.id) && p.id !== 'new-york');
   const shot = p.entries.find((e) => e.screenshot);
