@@ -13,4 +13,6 @@ node map/build/build-grid.mjs     # terrain + coastlines -> map/data/elev.bin.gz
 
 Add coordinates for a new city to `COORDS` in `build/build-cities.mjs`. Terrain comes from the [AWS Terrain Tiles](https://registry.opendata.aws/terrain-tiles/) (zoom 3) and land/lakes from [Natural Earth](https://www.naturalearthdata.com/) 50m; both are downloaded into `build/.cache/`.
 
-Keys: `1` `2` `3` switch Globe / Map / Compare, `/` searches, `Esc` clears the selection.
+Keys: `1` `2` `3` switch Globe / Map / Compare, `/` searches, `M` turns the music on or off, `Esc` clears the selection.
+
+**Music** is lo-fi made live in the browser with Web Audio (`js/music.js`): a slow ii-V-I-vi in F on a soft electric piano, bass, brushed drums on a swing, vinyl crackle and tape wobble. There are no audio files; the comping, fills and melody are drawn at random each bar.

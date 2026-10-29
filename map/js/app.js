@@ -2,6 +2,7 @@
 // the wiring that keeps selection (and, in Compare, the view) in sync.
 import { loadWorld, distanceKm, setProjection, projectionId, PROJECTIONS } from './world.js';
 import { createMap2D } from './map2d.js';
+import { createMusic } from './music.js';
 
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -305,6 +306,15 @@ $('#tour').addEventListener('click', () => {
   $('#tour').textContent = 'Stop tour';
 });
 
+// ---------- music ----------
+// Off until asked for: browsers only let sound start from a click or a key.
+const music = createMusic();
+async function toggleMusic() {
+  await music.toggle();
+  $('#music').setAttribute('aria-pressed', String(music.playing));
+}
+$('#music').addEventListener('click', toggleMusic);
+
 // ---------- keyboard, panel, hash ----------
 document.addEventListener('keydown', (e) => {
   if (e.target.matches('input[type=search], input[type=text]')) return;
@@ -313,6 +323,7 @@ document.addEventListener('keydown', (e) => {
   else if (e.key === '1') setMode('3d');
   else if (e.key === '2') setMode('2d');
   else if (e.key === '3') setMode('compare');
+  else if (e.key === 'm' || e.key === 'M') toggleMusic();
 });
 $('#panel-handle').addEventListener('click', () => $('#panel').classList.toggle('collapsed'));
 
