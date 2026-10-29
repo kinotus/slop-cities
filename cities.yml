@@ -201,6 +201,15 @@ cities:
             source: https://github.com/ginocingolani/slop-donostia
             by: ginocingolani
 
+      - city: Helsinki
+              country: Finland
+              coords: [60.1691, 24.9521]
+              takes:
+                - play: https://kinotus.github.io/slop-helsinki/
+                  source: https://github.com/kinotus/slop-helsinki
+                  by: kinotus
+                  desc: Slop Helsinki has urban information model buildings with textures as 3DTiles and Cesium terrain.
+
       - city: Kahramanmaraş
         country: Türkiye
         coords: [37.5753, 36.9228]
