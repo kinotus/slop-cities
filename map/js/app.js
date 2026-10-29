@@ -3,6 +3,7 @@
 import { loadWorld, distanceKm, setProjection, projectionId, PROJECTIONS } from './world.js';
 import { createMap2D } from './map2d.js';
 import { createMusic } from './music.js';
+import { createSfx } from './sfx.js';
 
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -211,6 +212,7 @@ function focusSelected(source) {
   const linked = state.mode === 'compare' && $('#opt-link').checked;
   // Linked: fly one view and let the link carry the other along.
   const lead = linked ? (source === '2d' ? 'map' : 'globe') : 'both';
+  swooshTo(p, source, state.mode === '2d' || lead === 'map' ? 800 : 1300);
   if (lead !== 'globe' && state.mode !== '3d') map.flyTo(p.lon, p.lat, Math.max(map.getView().zoom, p.region === 'Europe' ? 5 : 3.5), 800, matchMedia('(max-width: 820px)').matches && state.mode === '2d' ? innerHeight * 0.2 : 0);
   if (lead !== 'map' && state.mode !== '2d') ensureGlobe().then((g) => g.flyTo(p.lon, p.lat, Math.min(6, Math.max(g.getView().zoom, 1.5)), 1300));
 }
@@ -305,6 +307,21 @@ $('#tour').addEventListener('click', () => {
   $('#tour').setAttribute('aria-pressed', 'true');
   $('#tour').textContent = 'Stop tour';
 });
+
+// ---------- swoosh ----------
+// A whoosh as the view flies to a city, as loud as the flight is long. Not on
+// page load (a link to a city), when browsers don't allow sound anyway.
+const sfx = createSfx();
+const swooshOpt = $('#opt-swoosh');
+try { swooshOpt.checked = localStorage.getItem('slop-cities.swoosh') !== 'off'; } catch {}
+swooshOpt.addEventListener('change', () => { try { localStorage.setItem('slop-cities.swoosh', swooshOpt.checked ? 'on' : 'off'); } catch {} });
+function swooshTo(p, source, ms) {
+  if (!swooshOpt.checked || source === 'hash') return;
+  const v = state.mode === '2d' ? map.getView() : globe ? globe.getView() : map.getView();
+  const km = distanceKm(v.lon, v.lat, p.lon, p.lat);
+  const dLon = ((p.lon - v.lon + 540) % 360) - 180;
+  sfx.swoosh({ ms, amount: 0.25 + km / 12000, pan: Math.sign(dLon) * Math.min(1, Math.abs(dLon) / 90) });
+}
 
 // ---------- music ----------
 // Off until asked for: browsers only let sound start from a click or a key.

@@ -15,4 +15,4 @@ Add coordinates for a new city to `COORDS` in `build/build-cities.mjs`. Terrain 
 
 Keys: `1` `2` `3` switch Globe / Map / Compare, `/` searches, `M` turns the music on or off, `Esc` clears the selection.
 
-**Music** is lo-fi made live in the browser with Web Audio (`js/music.js`): a slow ii-V-I-vi in F on a soft electric piano, bass, brushed drums on a swing, vinyl crackle and tape wobble. There are no audio files; the comping, fills and melody are drawn at random each bar.
+**Music** is lo-fi made live in the browser with Web Audio (`js/music.js`): a slow ii-V-I-vi in F on a soft electric piano, bass, brushed drums on a swing, vinyl crackle and tape wobble. There are no audio files; the comping, fills and melody are drawn at random each bar. Flying to a city plays a **swoosh** (`js/sfx.js`): filtered noise that rises and falls with the camera, louder for longer flights and panned in the direction of travel. Turn it off in Layers.
