@@ -58,31 +58,35 @@ const REGIONS = ['North America', 'South America', 'Europe', 'Africa', 'Asia'];
 // *(editor's pick)*, *(slop inspired)*, *(isometric)* or *(tiny)*. Labels are
 // free text: each one becomes a badge on the card and a filter chip. Where a
 // city has several takes, an editor's pick comes first, then the README order.
+// Picks are the takes the list's editor highlights: `pick: true` in cities.yml
+// (an older *(editor's pick)* flag counts too). They come first on a city's
+// card, carry a Pick badge and have their own filter.
 const STATUS = /^(source only|wip|unverified)$/i;
-const RANK = ["editor's pick"];
-const rankOf = (e) => Math.min(...e.labels.map((l) => { const i = RANK.indexOf(l.toLowerCase()); return i < 0 ? RANK.length : i; }), RANK.length);
+const PICK_FLAG = /^editor'?s pick$/i;
+const rankOf = (e) => (e.pick ? 0 : 1);
 for (const p of places) {
   p.entries.forEach((e, i) => {
     const flags = e.flags.flatMap((f) => f.split(/\s*,\s*/));
     e.status = flags.filter((f) => STATUS.test(f));
-    e.labels = flags.filter((f) => !STATUS.test(f));
+    e.pick = e.pick || flags.some((f) => PICK_FLAG.test(f));
+    e.labels = flags.filter((f) => !STATUS.test(f) && !PICK_FLAG.test(f));
     e.order = i;
   });
   p.entries.sort((a, b) => rankOf(a) - rankOf(b) || a.order - b.order);
 }
 const labelKey = (l) => 'label:' + l.toLowerCase();
 const LABELS = [...new Map(places.flatMap((p) => p.entries.flatMap((e) => e.labels)).map((l) => [l.toLowerCase(), l])).values()]
-  .sort((a, b) => (RANK.indexOf(a.toLowerCase()) + 1 || 99) - (RANK.indexOf(b.toLowerCase()) + 1 || 99) || a.localeCompare(b));
+  .sort((a, b) => a.localeCompare(b));
 
 // ---------- tags ----------
 // Read from each entry's links and flags in the README, so there is nothing
 // extra to keep up to date. A city has a tag when any of its takes has it.
 const TAGS = [
+  { id: 'pick', label: 'Picks', test: (e) => e.pick },
   { id: 'play', label: 'Playable', test: (e) => !!e.links.play },
   { id: 'source', label: 'Open source', test: (e) => !!e.links.source },
   { id: 'source-only', label: 'Source only', test: (e) => e.flags.some((f) => /source only/i.test(f)) },
   { id: 'wip', label: 'WIP', test: (e) => e.flags.some((f) => /wip/i.test(f)) },
-  { id: 'remix', label: 'Remix of a remix', place: (p) => p.parents.some((id) => id !== 'new-york') },
   ...LABELS.map((l) => ({ id: labelKey(l), label: l[0].toUpperCase() + l.slice(1), test: (e) => e.labels.some((x) => x.toLowerCase() === l.toLowerCase()), label_: true })),
 ];
 for (const p of places) {
@@ -176,7 +180,7 @@ function renderCard() {
     <p class="lineage">${lineage}${children.length ? `<br>Inspired ${children.map((q) => `<a href="#" data-id="${q.id}">${esc(q.city)}</a>`).join(', ')}` : ''}</p>
     <ul class="takes">${p.entries.map((e) => `
       <li${rankOf(e) === 0 ? ' class="pick"' : ''}>
-        ${e.labels.length ? `<div class="labels">${e.labels.map((l) => `<span class="label-badge${RANK.includes(l.toLowerCase()) ? ' pick' : ''}">${esc(l)}</span>`).join('')}</div>` : ''}
+        ${e.pick || e.labels.length ? `<div class="labels">${e.pick ? '<span class="label-badge pick">Pick</span>' : ''}${e.labels.map((l) => `<span class="label-badge">${esc(l)}</span>`).join('')}</div>` : ''}
         <div class="who">${e.tag ? `<b>${esc(e.tag)}</b> · ` : ''}${e.author ? `by <a href="${esc(e.authorUrl)}" target="_blank" rel="noopener">${esc(e.author)}</a>` : '<i>unknown author</i>'}${e.status.map((f) => ` <span class="flag">${esc(f)}</span>`).join('')}${e.tags.includes('source') && !e.tags.includes('source-only') ? ' <span class="flag open">open source</span>' : ''}</div>
         ${e.desc ? `<p>${esc(e.desc)}</p>` : ''}
         <div class="links">${linkBtns(e.links)}</div>

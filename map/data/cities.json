@@ -21,6 +21,7 @@
      "desc": "Manhattan on foot, car, bicycle or helicopter.",
      "flags": [],
      "screenshot": "screenshots/newyork.jpg",
+     "pick": true,
      "tag": null
     }
    ],
@@ -36,7 +37,8 @@
      "flags": [
       "source only"
      ],
-     "screenshot": null
+     "screenshot": null,
+     "pick": false
     },
     {
      "title": "Extinction Avenue",
@@ -48,7 +50,8 @@
      "authorUrl": "https://github.com/midagedev",
      "desc": "Arcade dino-outbreak car shooter in Midtown.",
      "flags": [],
-     "screenshot": null
+     "screenshot": null,
+     "pick": false
     },
     {
      "title": "Flying Car Simulator",
@@ -60,7 +63,8 @@
      "authorUrl": "https://x.com/josephzhangai",
      "desc": "Fly a Roadster over 1:1 Manhattan with live traffic.",
      "flags": [],
-     "screenshot": null
+     "screenshot": null,
+     "pick": false
     },
     {
      "title": "GEN Z QUANT: Unfinished Business",
@@ -72,7 +76,8 @@
      "authorUrl": "https://github.com/ceogenz",
      "desc": "Open-world mission game: drive a rocket-boosted supercar through Manhattan, fight the Degens and get the dog Moon home.",
      "flags": [],
-     "screenshot": null
+     "screenshot": null,
+     "pick": false
     },
     {
      "title": "Handbrake drift",
@@ -85,7 +90,8 @@
      "flags": [
       "source only"
      ],
-     "screenshot": null
+     "screenshot": null,
+     "pick": false
     },
     {
      "title": "LLM residents",
@@ -98,7 +104,8 @@
      "flags": [
       "source only"
      ],
-     "screenshot": null
+     "screenshot": null,
+     "pick": false
     },
     {
      "title": "Low-end GPU fork",
@@ -110,7 +117,8 @@
      "authorUrl": "https://github.com/Denzy7",
      "desc": "Performance rewrite for weak GPUs and browsers without WebGPU.",
      "flags": [],
-     "screenshot": null
+     "screenshot": null,
+     "pick": false
     },
     {
      "title": "Make it anywhere",
@@ -121,7 +129,8 @@
      "authorUrl": "https://x.com/mattiadmr",
      "desc": "A live Times Square where you can take over a billboard screen with your own ad (paid, from 1 EUR). Built on the phone mode from Slop New York Mini.",
      "flags": [],
-     "screenshot": null
+     "screenshot": null,
+     "pick": false
     },
     {
      "title": "NYC Spin-off: EUC Thrills",
@@ -133,7 +142,8 @@
      "authorUrl": "https://github.com/VibezZzCoder",
      "desc": "Ride an electric unicycle through Manhattan with EUC Thrills riding physics while dodging a paddle-wielding cop.",
      "flags": [],
-     "screenshot": null
+     "screenshot": null,
+     "pick": false
     },
     {
      "title": "Pocket New York",
@@ -147,7 +157,8 @@
      "flags": [
       "WIP"
      ],
-     "screenshot": null
+     "screenshot": null,
+     "pick": false
     },
     {
      "title": "Real terrain",
@@ -159,7 +170,8 @@
      "authorUrl": "https://github.com/pablo-mayrgundter",
      "desc": "Drives the city over Manhattan's real ground.",
      "flags": [],
-     "screenshot": null
+     "screenshot": null,
+     "pick": false
     },
     {
      "title": "Slop New York Mini",
@@ -171,7 +183,8 @@
      "authorUrl": "https://github.com/mattiaongit",
      "desc": "Runs on an iPhone: Midtown at 60 fps. Desktop gets the original; ?phone forces phone mode.",
      "flags": [],
-     "screenshot": null
+     "screenshot": null,
+     "pick": false
     },
     {
      "title": "Spider-Man · Slop New York",
@@ -183,7 +196,8 @@
      "authorUrl": "https://github.com/jnaranj09",
      "desc": "Web-swing through Manhattan on your phone with a one-thumb swinging controller.",
      "flags": [],
-     "screenshot": null
+     "screenshot": null,
+     "pick": false
     },
     {
      "title": "Taxi fares",
@@ -195,7 +209,8 @@
      "authorUrl": "https://github.com/mrubens",
      "desc": "Drive taxi fares against the clock.",
      "flags": [],
-     "screenshot": null
+     "screenshot": null,
+     "pick": false
     },
     {
      "title": "Unity port",
@@ -206,7 +221,8 @@
      "authorUrl": "https://github.com/jdlp2442",
      "desc": "1:1 port to Unity 6 / URP 17.",
      "flags": [],
-     "screenshot": null
+     "screenshot": null,
+     "pick": false
     },
     {
      "title": "Valdrada",
@@ -219,7 +235,8 @@
      "authorUrl": "https://x.com/mkturkcan",
      "desc": "A real-time New York digital twin from public records, with Unreal Engine 5 and three.js renderers, lane-level traffic and pedestrians, and a CARLA-style API for simulation and synthetic data. Predates Slop New York.",
      "flags": [],
-     "screenshot": null
+     "screenshot": null,
+     "pick": false
     }
    ],
    "parents": []
@@ -244,6 +261,7 @@
      "desc": "Nigeria's capital: 37,373 buildings, Aso Rock at full height, place search and turn-by-turn directions. Take a green FCT taxi to the National Mosque.",
      "flags": [],
      "screenshot": "screenshots/abuja.jpg",
+     "pick": true,
      "tag": null
     }
    ],
@@ -274,6 +292,7 @@
       "own engine"
      ],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -301,6 +320,7 @@
      "desc": "Kenya's capital.",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -330,6 +350,7 @@
       "source only"
      ],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -360,6 +381,7 @@
       "own engine"
      ],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -386,6 +408,7 @@
      "desc": "Slop Dubai: jump to Burj Khalifa, Museum of the Future, Dubai Frame, Burj Al Arab, Palm Jumeirah and Dubai Marina.",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -415,6 +438,7 @@
       "source only"
      ],
      "screenshot": null,
+     "pick": false,
      "tag": null
     },
     {
@@ -430,6 +454,7 @@
       "own engine"
      ],
      "screenshot": null,
+     "pick": false,
      "tag": "Night Patrol"
     }
    ],
@@ -460,6 +485,7 @@
       "own engine"
      ],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -488,6 +514,7 @@
       "own engine"
      ],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -514,6 +541,7 @@
      "desc": "Shanghai Roam: the Huangpu, the Bund and Lujiazui.",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -543,6 +571,7 @@
      "desc": "Singapore landmarks, an accurate tree database, tropical thunderstorms, haze, navigation and self-driving.",
      "flags": [],
      "screenshot": "screenshots/singapore.jpg",
+     "pick": true,
      "tag": null
     }
    ],
@@ -571,6 +600,7 @@
      "desc": "Slop 台北: Wanhua and Ximending to Xinyi and Taipei 101, by taxi, scooter or helicopter.",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": null
     },
     {
@@ -584,6 +614,7 @@
      "desc": "Taipei Basin with rivers and bridges.",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": "hebe13579"
     },
     {
@@ -597,6 +628,7 @@
      "desc": "",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": "sc0Vu"
     }
    ],
@@ -625,6 +657,7 @@
      "desc": "Cerdà's Eixample with its chamfered blocks and inner courtyards, Ciutat Vella, Gràcia and Sants.",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -653,6 +686,7 @@
      "desc": "Berlin's street map, and pedestrians who scream and jump out of the way of bad driving.",
      "flags": [],
      "screenshot": "screenshots/berlin.jpg",
+     "pick": true,
      "tag": null
     }
    ],
@@ -681,6 +715,7 @@
      "desc": "A city twin with real building data and Skråfoto facade textures.",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -709,6 +744,7 @@
      "desc": "",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -737,6 +773,7 @@
      "desc": "SLOPMARAS: 40,000+ buildings, the castle and Ulu Camii, navigation and self-driving taxis. Adapted from Slop New York and Slop Singapore.",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -766,6 +803,7 @@
      "desc": "Kazan and surroundings, Tatarstan.",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -795,6 +833,7 @@
      "desc": "London Loop: a GTA-style 1:1 Zone 1. Drive a double-decker on a real route and timetable, picking up passengers.",
      "flags": [],
      "screenshot": "screenshots/london.jpg",
+     "pick": true,
      "tag": null
     },
     {
@@ -810,6 +849,7 @@
       "own engine"
      ],
      "screenshot": null,
+     "pick": false,
      "tag": "tiny.london"
     }
    ],
@@ -838,6 +878,7 @@
      "desc": "",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -866,6 +907,7 @@
      "desc": "Montreux Drift, with real relief down to Lake Geneva.",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -895,6 +937,7 @@
       "source only"
      ],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -925,6 +968,7 @@
       "own engine"
      ],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -952,6 +996,7 @@
       "source only"
      ],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -980,6 +1025,7 @@
      "desc": "Domtoren, Oudegracht and Centraal Station.",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -1008,6 +1054,7 @@
      "desc": "Tiny Warsaw: browse, ride and fly through a low-poly central Warsaw with the Palace of Culture.",
      "flags": [],
      "screenshot": "screenshots/warsaw.jpg",
+     "pick": true,
      "tag": null
     },
     {
@@ -1024,6 +1071,7 @@
       "own engine"
      ],
      "screenshot": null,
+     "pick": false,
      "tag": "Isometric Warsaw"
     },
     {
@@ -1038,6 +1086,7 @@
       "source only"
      ],
      "screenshot": null,
+     "pick": false,
      "tag": "Szczęśliwe Bielany"
     }
    ],
@@ -1066,6 +1115,7 @@
      "desc": "Slop Zürich: the inner city at 1:1 on its real relief from swisstopo buildings and terrain, with trams, on foot, by bike, cargo bike, car or helicopter.",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -1095,6 +1145,7 @@
       "source only"
      ],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -1124,6 +1175,7 @@
      "desc": "Waymo rides, helicopters, real hills and marine fog.",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": null
     },
     {
@@ -1136,6 +1188,7 @@
      "desc": "",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": "Sweep SF"
     }
    ],
@@ -1164,6 +1217,7 @@
      "desc": "Slop Seattle: downtown, Seattle Center, Pioneer Square, South Lake Union and SoDo from 4,490 OSM buildings, with the Space Needle, Pike Place Market, the Great Wheel and Elliott Bay ferries.",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -1193,6 +1247,7 @@
       "source only"
      ],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -1222,6 +1277,7 @@
      "desc": "Downtown and the waterfront at golden hour.",
      "flags": [],
      "screenshot": "screenshots/toronto.jpg",
+     "pick": true,
      "tag": null
     },
     {
@@ -1235,6 +1291,7 @@
      "desc": "",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": "aalghooneh"
     }
    ],
@@ -1263,6 +1320,7 @@
      "desc": "Uruapan, Michoacán, from OpenStreetMap.",
      "flags": [],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],
@@ -1291,6 +1349,7 @@
      "desc": "\"Buenos Aires berreta\": the whole city and part of the conurbano, with black-and-yellow taxis.",
      "flags": [],
      "screenshot": "screenshots/buenosaires.jpg",
+     "pick": true,
      "tag": null
     }
    ],
@@ -1323,6 +1382,7 @@
       "WIP"
      ],
      "screenshot": null,
+     "pick": false,
      "tag": null
     }
    ],

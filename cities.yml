@@ -10,6 +10,7 @@ original:
   coords: [40.758, -73.9855]
   takes:
     - play: https://mrdoob.github.io/slop-newyork/
+      pick: true
       source: https://github.com/mrdoob/slop-newyork
       tweet: https://x.com/mrdoob/status/2113177383658561721
       by: "@mrdoob"
@@ -26,6 +27,7 @@ cities:
         coords: [9.0579, 7.4951]
         takes:
           - play: https://abujatour.site/
+            pick: true
             tweet: https://x.com/0xkodesage/status/2113449044206920085
             by: "@0xkodesage"
             desc: "Nigeria's capital: 37,373 buildings, Aso Rock at full height, place search and turn-by-turn directions. Take a green FCT taxi to the National Mosque."
@@ -126,6 +128,7 @@ cities:
         coords: [1.2834, 103.8607]
         takes:
           - play: https://zz85.github.io/slop-singapore/
+            pick: true
             source: https://github.com/zz85/slop-singapore
             tweet: https://x.com/BlurSpline/status/2114222434425745531
             by: "@BlurSpline"
@@ -165,6 +168,7 @@ cities:
         coords: [52.5163, 13.3777]
         takes:
           - play: https://www.aaronjcunningham.com/play/berlin
+            pick: true
             tweet: https://x.com/Aaron_1337/status/2113969912158847343
             by: "@Aaron_1337"
             desc: Berlin's street map, and pedestrians who scream and jump out of the way of bad driving.
@@ -211,6 +215,7 @@ cities:
         coords: [51.5072, -0.1276]
         takes:
           - play: https://nelsonchris1.github.io/london-loop/
+            pick: true
             source: https://github.com/nelsonchris1/london-loop
             tweet: https://x.com/Nelson_christof/status/2113986000112296170
             by: "@Nelson_christof"
@@ -281,6 +286,7 @@ cities:
         coords: [52.2297, 21.0122]
         takes:
           - play: https://tinywarsaw.app/
+            pick: true
             tweet: https://x.com/OrestesGaolin/status/2114423799382679687
             by: "@OrestesGaolin"
             desc: "Tiny Warsaw: browse, ride and fly through a low-poly central Warsaw with the Palace of Culture."
@@ -351,6 +357,7 @@ cities:
         coords: [43.6532, -79.3832]
         takes:
           - play: https://slop-toronto.cloud6711.workers.dev/explore
+            pick: true
             source: https://github.com/johnfewell/slop-toronto
             tweet: https://x.com/johnfewell/status/2114053187946545313
             by: "@johnfewell"
@@ -375,6 +382,7 @@ cities:
         coords: [-34.6037, -58.3816]
         takes:
           - play: https://msantelli.github.io/slop-buenosaires/
+            pick: true
             tweet: https://x.com/mesantelli/status/2114805565813936618
             by: "@mesantelli"
             desc: "\"Buenos Aires berreta\": the whole city and part of the conurbano, with black-and-yellow taxis."
