@@ -76,6 +76,19 @@
      "screenshot": null
     },
     {
+     "title": "Handbrake drift",
+     "links": {
+      "source": "https://github.com/tiborsaas/slop-newyork"
+     },
+     "author": "tiborsaas",
+     "authorUrl": "https://github.com/tiborsaas",
+     "desc": "Adds a handbrake to the car, with rear-wheel drift.",
+     "flags": [
+      "source only"
+     ],
+     "screenshot": null
+    },
+    {
      "title": "LLM residents",
      "links": {
       "source": "https://github.com/trippuroskie/slop-newyork"
@@ -97,6 +110,17 @@
      "author": "Denzy7",
      "authorUrl": "https://github.com/Denzy7",
      "desc": "Performance rewrite for weak GPUs and browsers without WebGPU.",
+     "flags": [],
+     "screenshot": null
+    },
+    {
+     "title": "Make it anywhere",
+     "links": {
+      "play": "https://makeitanywhere.xyz"
+     },
+     "author": "@mattiadmr",
+     "authorUrl": "https://x.com/mattiadmr",
+     "desc": "A live Times Square where you can take over a billboard screen with your own ad (paid, from 1 EUR). Built on the phone mode from Slop New York Mini.",
      "flags": [],
      "screenshot": null
     },
