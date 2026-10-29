@@ -30,6 +30,7 @@ function ensureGlobe() {
         $('#loading-3d').hidden = true;
         g.setOptions(currentOpts());
         g.setSelected(state.selected);
+        g.setFilter(state.tag ? new Set(places.filter((p) => p.tags.includes(state.tag)).map((p) => p.id)) : null);
         if (state.selected) { const p = byId.get(state.selected); g.flyTo(p.lon, p.lat, 3.5, 0); }
         else if (state.mode === 'compare' && $('#opt-link').checked) g.setView(map.getView());
         return g;
@@ -39,7 +40,7 @@ function ensureGlobe() {
   return globePromise;
 }
 
-const state = { mode: '2d', selected: null, hovered: null, query: '' };
+const state = { mode: '3d', selected: null, hovered: null, query: '', tag: null };
 
 // ---------- stats + list ----------
 const takes = places.reduce((n, p) => n + p.entries.length, 0);
@@ -49,9 +50,42 @@ $('#brand-sub').textContent = `World map · ${places.length} cities · ${takes} 
 $('#stats').innerHTML = `${ny.remixes.length} New York remixes · farthest from New York: ${esc(far.city)}, ${Math.round(distanceKm(ny.lon, ny.lat, far.lon, far.lat)).toLocaleString()} km`;
 
 const REGIONS = ['North America', 'South America', 'Europe', 'Africa', 'Asia'];
+// ---------- tags ----------
+// Read from each entry's links and flags in the README, so there is nothing
+// extra to keep up to date. A city has a tag when any of its takes has it.
+const TAGS = [
+  { id: 'play', label: 'Playable', test: (e) => !!e.links.play },
+  { id: 'source', label: 'Open source', test: (e) => !!e.links.source },
+  { id: 'source-only', label: 'Source only', test: (e) => e.flags.some((f) => /source only/i.test(f)) },
+  { id: 'wip', label: 'WIP', test: (e) => e.flags.some((f) => /wip/i.test(f)) },
+  { id: 'remix', label: 'Remix of a remix', place: (p) => p.parents.some((id) => id !== 'new-york') },
+];
+for (const p of places) {
+  p.tags = TAGS.filter((t) => (t.place ? t.place(p) : p.entries.some(t.test))).map((t) => t.id);
+  for (const e of p.entries) e.tags = TAGS.filter((t) => t.test && t.test(e)).map((t) => t.id);
+}
+const tagLabel = Object.fromEntries(TAGS.map((t) => [t.id, t.label]));
+function renderChips() {
+  $('#chips').innerHTML = TAGS.map((t) => {
+    const n = places.filter((p) => p.tags.includes(t.id)).length;
+    return n ? `<button class="chip${state.tag === t.id ? ' on' : ''}" data-tag="${t.id}" aria-pressed="${state.tag === t.id}">${esc(t.label)} <span>${n}</span></button>` : '';
+  }).join('');
+}
+renderChips();
+$('#chips').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-tag]');
+  if (!b) return;
+  state.tag = state.tag === b.dataset.tag ? null : b.dataset.tag;
+  renderChips();
+  renderList();
+  const ids = state.tag ? new Set(places.filter((p) => p.tags.includes(state.tag)).map((p) => p.id)) : null;
+  map.setFilter(ids);
+  globe?.setFilter(ids);
+});
+
 function renderList() {
   const q = state.query.trim().toLowerCase();
-  const match = (p) => !q || [p.city, p.country, p.region, ...p.entries.flatMap((e) => [e.author, e.tag, e.desc])].some((s) => s && s.toLowerCase().includes(q));
+  const match = (p) => (!state.tag || p.tags.includes(state.tag)) && (!q || [p.city, p.country, p.region, ...p.entries.flatMap((e) => [e.author, e.tag, e.desc])].some((s) => s && s.toLowerCase().includes(q)));
   let html = '';
   for (const r of REGIONS) {
     const items = places.filter((p) => p.region === r && match(p)).sort((a, b) => (b.original - a.original) || a.city.localeCompare(b.city));
@@ -104,7 +138,7 @@ function renderCard() {
     <p class="lineage">${lineage}${children.length ? `<br>Inspired ${children.map((q) => `<a href="#" data-id="${q.id}">${esc(q.city)}</a>`).join(', ')}` : ''}</p>
     <ul class="takes">${p.entries.map((e) => `
       <li>
-        <div class="who">${e.tag ? `<b>${esc(e.tag)}</b> · ` : ''}${e.author ? `by <a href="${esc(e.authorUrl)}" target="_blank" rel="noopener">${esc(e.author)}</a>` : '<i>unknown author</i>'}${e.flags.map((f) => ` <span class="flag">${esc(f)}</span>`).join('')}</div>
+        <div class="who">${e.tag ? `<b>${esc(e.tag)}</b> · ` : ''}${e.author ? `by <a href="${esc(e.authorUrl)}" target="_blank" rel="noopener">${esc(e.author)}</a>` : '<i>unknown author</i>'}${e.flags.map((f) => ` <span class="flag">${esc(f)}</span>`).join('')}${e.tags.includes('source') && !e.tags.includes('source-only') ? ' <span class="flag open">open source</span>' : ''}</div>
         ${e.desc ? `<p>${esc(e.desc)}</p>` : ''}
         <div class="links">${linkBtns(e.links)}</div>
       </li>`).join('')}
@@ -166,7 +200,12 @@ function setMode(mode) {
   placeIndicator();
   if (mode !== '2d') ensureGlobe().then((g) => { g.resize(); g.setRunning(true); if (mode === 'compare' && $('#opt-link').checked && !state.selected) g.setView(map.getView()); });
   else globe?.setRunning(false);
-  requestAnimationFrame(() => map.resize());
+  requestAnimationFrame(() => {
+    map.resize();
+    // The flat map doesn't follow selections while hidden; catch it up.
+    const p = byId.get(state.selected);
+    if (p && mode !== '3d') map.flyTo(p.lon, p.lat, Math.max(map.getView().zoom, p.region === 'Europe' ? 5 : 3.5), 0);
+  });
   writeHash();
 }
 for (const b of document.querySelectorAll('.modes button')) b.addEventListener('click', () => setMode(b.dataset.mode));
@@ -197,6 +236,7 @@ function applyProjection(id) {
   map = createMap2D($('#stage-2d'), world, bus);
   map.setOptions(currentOpts());
   map.setSelected(state.selected);
+  map.setFilter(state.tag ? new Set(places.filter((p) => p.tags.includes(state.tag)).map((p) => p.id)) : null);
   map.setView(v);
   syncProjectionUI();
   writeHash();
@@ -233,15 +273,15 @@ document.addEventListener('keydown', (e) => {
   if (e.target.matches('input[type=search], input[type=text]')) return;
   if (e.key === '/') { e.preventDefault(); $('#search').focus(); }
   else if (e.key === 'Escape') bus.emit('select', { id: null, source: 'key' });
-  else if (e.key === '1') setMode('2d');
-  else if (e.key === '2') setMode('3d');
+  else if (e.key === '1') setMode('3d');
+  else if (e.key === '2') setMode('2d');
   else if (e.key === '3') setMode('compare');
 });
 $('#panel-handle').addEventListener('click', () => $('#panel').classList.toggle('collapsed'));
 
 function writeHash() {
   const h = new URLSearchParams();
-  if (state.mode !== '2d') h.set('view', state.mode === '3d' ? 'globe' : 'compare');
+  if (state.mode !== '3d') h.set('view', state.mode === '2d' ? 'map' : 'compare');
   if (state.selected) h.set('city', state.selected);
   if (projectionId !== 'patterson') h.set('proj', projectionId);
   const s = h.toString();
@@ -250,7 +290,7 @@ function writeHash() {
 function readHash() {
   const h = new URLSearchParams(location.hash.slice(1));
   const v = h.get('view');
-  setMode(v === 'globe' ? '3d' : v === 'compare' ? 'compare' : '2d');
+  setMode(v === 'map' ? '2d' : v === 'compare' ? 'compare' : '3d');
   if (h.get('proj') && PROJECTIONS[h.get('proj')]) applyProjection(h.get('proj'));
   const c = h.get('city');
   if (c && byId.has(c)) bus.emit('select', { id: c, source: 'hash' });

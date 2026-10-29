@@ -248,6 +248,7 @@ export async function createGlobe3D(container, world, bus) {
 
   // ---- state ----
   let selected = null, hovered = null, relatives = new Set();
+  let filter = null; // ids to show, or null for every city
   const opts = { arcs: false, labels: true, spin: true, clouds: true };
   let W = 1, H = 1;
 
@@ -324,6 +325,8 @@ export async function createGlobe3D(container, world, bus) {
       p.head.scale.setScalar(s * 1.25);
       p.hit.position.copy(p.head.position);
       p.hit.scale.setScalar(s * 3);
+      const filteredOut = !!filter && !filter.has(p.place.id) && p.place.id !== selected;
+      p.g.visible = !filteredOut;
       const dim = !!selected && p.place.id !== selected && !relatives.has(p.place.id);
       p.mat.color.copy(p.place.id === selected ? colSel : p.place.original ? colOrig : colPin);
       p.mat.opacity = dim ? 0.35 : 1; p.mat.transparent = dim;
@@ -333,7 +336,7 @@ export async function createGlobe3D(container, world, bus) {
       const force = p.place.id === selected || p.place.id === hovered;
       const w = p.place.city.length * 6.8 + (p.place.entries.length > 1 ? 18 : 0) + 12;
       const box = [x - w / 2, y - 22, x + w / 2, y - 4];
-      const visible = facing > 0.12 && x > -40 && x < W + 40 && y > -20 && y < H + 30;
+      const visible = !filteredOut && facing > 0.12 && x > -40 && x < W + 40 && y > -20 && y < H + 30;
       const show = visible && (force || (opts.labels && !placed.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1])));
       if (show) placed.push(box);
       p.label.style.display = show ? '' : 'none';
@@ -380,6 +383,7 @@ export async function createGlobe3D(container, world, bus) {
     if (id) for (const a of arcs) { if (a.to === id) relatives.add(a.from); if (a.from === id && id !== 'new-york') relatives.add(a.to); }
     if (id) { controls.autoRotate = false; clearTimeout(idleTimer); }
   }
+  function setFilter(ids) { filter = ids; }
   function setHovered(id) { hovered = id; }
   function setOptions(o) {
     Object.assign(opts, o);
@@ -393,5 +397,5 @@ export async function createGlobe3D(container, world, bus) {
   function reset() { flyTo(10, 20, 1); }
   function setRunning(on) { running = on; if (on) clock.getDelta(); }
 
-  return { setSelected, setHovered, setOptions, flyTo, getView, setView, resize, zoomBy, reset, setRunning, stats, el: container, renderer };
+  return { setFilter, setSelected, setHovered, setOptions, flyTo, getView, setView, resize, zoomBy, reset, setRunning, stats, el: container, renderer };
 }

@@ -159,6 +159,7 @@ export function createMap2D(container, world, bus) {
   let committed = { ...view };
   let fit = 1;
   let selected = null, hovered = null;
+  let filter = null; // ids to show, or null for every city
   const opts = { arcs: false, labels: true, ocean: false };
 
   const k = () => fit * view.z; // pixels per SVG unit
@@ -226,13 +227,15 @@ export function createMap2D(container, world, bus) {
       if (p.badge) p.badge.setAttribute('font-size', 8);
       p.g.classList.toggle('selected', p.place.id === selected);
       p.g.classList.toggle('hovered', p.place.id === hovered);
+      const filteredOut = filter && !filter.has(p.place.id) && p.place.id !== selected;
       p.g.classList.toggle('dim', !!selected && p.place.id !== selected && !relatives.has(p.place.id));
+      p.g.classList.toggle('filtered', !!filteredOut);
       // screen-space box for collision
       const sx = (p.x - view.x) * kk + W / 2, sy = (p.y - view.y) * kk + H / 2;
       const box = [sx + r + 3, sy - 8, sx + r + 3 + p.w, sy + 8];
       const off = sx < -50 || sx > W + 50 || sy < -20 || sy > H + 20;
       const force = p.place.id === selected || p.place.id === hovered;
-      const show = !off && (force || (opts.labels && !placed.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1])));
+      const show = !off && !filteredOut && (force || (opts.labels && !placed.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1])));
       if (show) placed.push(box);
       p.label.style.display = show ? '' : 'none';
       if (show) {
@@ -389,6 +392,7 @@ export function createMap2D(container, world, bus) {
     if (id) for (const a of arcs) { if (a.to === id) relatives.add(a.from); if (a.from === id && id !== 'new-york') relatives.add(a.to); }
     drawOverlay();
   }
+  function setFilter(ids) { filter = ids; drawOverlay(); }
   function setHovered(id) { hovered = id; drawOverlay(); }
   function setOptions(o) {
     Object.assign(opts, o);
@@ -421,5 +425,5 @@ export function createMap2D(container, world, bus) {
     container.classList.remove('map2d', 'no-ocean', 'zoomed', 'dragging');
   }
 
-  return { destroy, setSelected, setHovered, setOptions, setFlowing, flyTo, getView, setView, resize, zoomBy, reset, stats, el: container };
+  return { destroy, setFilter, setSelected, setHovered, setOptions, setFlowing, flyTo, getView, setView, resize, zoomBy, reset, stats, el: container };
 }

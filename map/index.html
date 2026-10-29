@@ -18,7 +18,7 @@
     } }
   </script>
 </head>
-<body class="mode-2d">
+<body class="mode-3d">
   <main class="views" id="views">
     <section class="view view-2d" id="view-2d" aria-label="Flat map">
       <div class="stage" id="stage-2d"></div>
@@ -50,8 +50,8 @@
     <div class="panel toolbar">
       <div class="modes" role="tablist" aria-label="View">
         <span class="mode-indicator" aria-hidden="true"></span>
-        <button class="mode-btn" role="tab" data-mode="2d" aria-selected="true">Map <kbd>1</kbd></button>
-        <button class="mode-btn" role="tab" data-mode="3d" aria-selected="false">Globe <kbd>2</kbd></button>
+        <button class="mode-btn" role="tab" data-mode="3d" aria-selected="true">Globe <kbd>1</kbd></button>
+        <button class="mode-btn" role="tab" data-mode="2d" aria-selected="false">Map <kbd>2</kbd></button>
         <button class="mode-btn" role="tab" data-mode="compare" aria-selected="false">Compare <kbd>3</kbd></button>
       </div>
       <span class="toolbar-divider"></span>
@@ -79,6 +79,7 @@
       <input id="search" type="search" placeholder="Search cities, countries, authors" autocomplete="off" spellcheck="false">
       <kbd>/</kbd>
     </label>
+    <div class="chips" id="chips" role="group" aria-label="Filter cities"></div>
     <p class="stats" id="stats"></p>
     <nav class="list" id="list" aria-label="Cities"></nav>
     <p class="foot">Terrain <a href="https://registry.opendata.aws/terrain-tiles/">AWS Terrain Tiles</a> · coastlines <a href="https://www.naturalearthdata.com/">Natural Earth</a></p>
