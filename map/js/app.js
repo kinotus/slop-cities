@@ -131,9 +131,11 @@ function renderList() {
     if (!items.length) continue;
     html += `<h3>${esc(r)} <span>${items.length}</span></h3><ul>`;
     for (const p of items) {
-      const n = p.entries.length;
+      // New York counts its remixes too: they are versions of the same city.
+      const n = p.entries.length + (p.remixes?.length || 0);
+      const nTitle = p.remixes?.length ? `the original and ${p.remixes.length} remixes` : `${n} takes`;
       html += `<li><button data-id="${p.id}" class="${p.id === state.selected ? 'on' : ''}${p.original ? ' original' : ''}">
-        <span class="nm">${esc(p.city)}</span><span class="ct">${esc(p.country || '')}</span>${n > 1 ? `<span class="n" title="${n} takes">${n}</span>` : ''}${p.original ? '<span class="tagline">the original</span>' : ''}
+        <span class="nm">${esc(p.city)}</span><span class="ct">${esc(p.country || '')}</span>${p.original ? '<span class="tagline">the original</span>' : ''}${n > 1 ? `<span class="n" title="${nTitle}">${n}</span>` : ''}
       </button></li>`;
     }
     html += '</ul>';
