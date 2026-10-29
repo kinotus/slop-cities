@@ -78,6 +78,7 @@ Entries marked *(source only)* have no live demo yet; clone and serve locally.
 ### Asia
 
 - **Bangkok, Thailand** - [Source](https://github.com/olivalcf/slop-bangkok) - by [olivalcf](https://github.com/olivalcf). A stylized Bangkok around Sukhumvit, with meter taxis. *(source only)*
+- **Daejeon, South Korea** - [Play](https://abirdcity.com/city/daejeon?lang=en) · [Tweet](https://x.com/ggybbo220913/status/2115066376440455466) - by [@ggybbo220913](https://x.com/ggybbo220913). abirdcity: the whole city from OpenStreetMap in PlayCanvas. Drive a Roadster up a skyscraper wall, fly a pteranodon over Hanbit Tower, or jump to Daejeon in the year 2300.
 - **Dubai, UAE** - [Play](https://slop-dubai-kfmedia.netlify.app/) · [Tweet](https://x.com/kayf2010/status/2114050750074548626) - by [@kayf2010](https://x.com/kayf2010). Slop Dubai: jump to Burj Khalifa, Museum of the Future, Dubai Frame, Burj Al Arab, Palm Jumeirah and Dubai Marina.
 - **Hong Kong** - [Source](https://github.com/keithligh/slop-hongkong) - by [keithligh](https://github.com/keithligh). Hong Kong Island and Kowloon from LandsD buildings and OSM. *(source only)*
 - **Hong Kong (swankchan)** - [Source](https://github.com/swankchan/slop-hongkong) - by [swankchan](https://github.com/swankchan). Central to Mong Kok on both sides of Victoria Harbour, with left-hand traffic. *(source only, WIP)*
