@@ -9,7 +9,9 @@ import { fileURLToPath } from 'node:url';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..', '..');
-const readme = readFileSync(join(root, 'README.md'), 'utf8');
+// Optional: --readme <file> --out <file>, for trying README changes without touching data/.
+const arg = (k) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : null; };
+const readme = readFileSync(arg('--readme') || join(root, 'README.md'), 'utf8');
 
 // [lat, lon] of each city centre (or of the part of the city the sim covers).
 const COORDS = {
@@ -137,5 +139,5 @@ for (const p of out) {
 for (const p of out) for (const e of p.entries) if (e.screenshot && !existsSync(join(root, e.screenshot))) e.screenshot = null;
 
 const json = { generated: new Date().toISOString().slice(0, 10), places: out };
-writeFileSync(join(here, '..', 'data', 'cities.json'), JSON.stringify(json, null, 1) + '\n');
+writeFileSync(arg('--out') || join(here, '..', 'data', 'cities.json'), JSON.stringify(json, null, 1) + '\n');
 console.log(`${out.length} cities, ${out.reduce((n, p) => n + p.entries.length, 0)} entries, ${remixes.length} New York remixes`);

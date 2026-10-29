@@ -10,5 +10,7 @@ PRs welcome. To add an entry:
    - **City, Country** - [Play](https://...) · [Source](https://github.com/...) · [Tweet](https://x.com/...) - by [@handle](https://x.com/handle). One-line description.
    ```
 
+   To label a take, add the label in italic brackets at the end of its line, e.g. `*(editor's pick)*`, `*(isometric)*` or `*(editor's pick, tiny)*`. Labels show as badges on the [world map](map/)'s city card and as filter chips there; on a city with several takes, the editor's pick is listed first. `*(source only)*`, `*(WIP)*` and `*(unverified)*` stay status markers.
+
 4. Strip tracking params like `?s=20` from tweet links.
 5. Link only to things that load. Mark anything you couldn't check as *(unverified)*.
